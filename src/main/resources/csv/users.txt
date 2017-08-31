@@ -1,0 +1,4 @@
+Igor Watson    |   Singh       |   Watson@gmail.com  |  Watson  |   ADMIN
+Peet Sampras   |   KR.		   |   Sampras@gmail.com |  Sampras |   USER
+Rita Paul      |   Yenn 	   |   Paul@gmail.com    |  Paul    |   MANAGER
+Han Yenn       |   Yenn        |   Yenn@gmail.com    |  Yenn    |   ADMIN

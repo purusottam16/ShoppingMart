@@ -19,7 +19,9 @@ public interface UserService {
     void deleteUserBySSO(String sso);
  
     List<User> findAllUsers(); 
-     
+    
+    User findByEmail(String email);
+    
     boolean isUserSSOUnique(Integer id, String sso);
  
 }

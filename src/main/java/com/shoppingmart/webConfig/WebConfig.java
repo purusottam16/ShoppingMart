@@ -160,6 +160,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		registry.addResourceHandler("/less/**").addResourceLocations("/less/");
 		registry.addResourceHandler("/fonts/**").addResourceLocations("/fonts/");
 		registry.addResourceHandler("/scss/**").addResourceLocations("/scss/");
+		registry.addResourceHandler("/icons/**").addResourceLocations("/icons/");
 	}
 	@Bean(name="multipartResolver")
     public StandardServletMultipartResolver resolver(){

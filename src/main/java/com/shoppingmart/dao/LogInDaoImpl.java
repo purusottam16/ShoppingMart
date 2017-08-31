@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.transform.Transformers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,19 +29,16 @@ public class LogInDaoImpl extends AbstractDao<Integer, User> implements LogInDao
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 
-	public UserInfo findUserInfo(String username) {
-		UserInfo info = null;
-		if (username.equals("Puru")) {
-			info = new UserInfo();
-			info.setUsername(username);
-			info.setPassword(encoder.encode("123"));
-		}
-		if (username.equals("Chin2")) {
-			info = new UserInfo();
-			info.setUsername(username);
-			info.setPassword("456");
-		}
-		return info;
+	public User findUserInfo(String username) {
+		logger.info("username : {}", username);
+        Criteria crit = createEntityCriteria();
+        crit.add(Restrictions.eq("EMAIL", username));
+        User user = (User)crit.uniqueResult();
+        if(user!=null){
+            Hibernate.initialize(user.getUserProfiles());
+        }
+        return user;
+		//return info;
 	}
 	
 	public User findById(int id) {
@@ -65,15 +65,13 @@ public class LogInDaoImpl extends AbstractDao<Integer, User> implements LogInDao
 
 	public List<String> getUserRoles(String username) {
 		// TODO Auto-generated method stub
-		List<String> list = new ArrayList<String>();
-		if (username.equals("Puru")) {
-			list.add("ROLE_ADMIN");
-			// list.add("ROLE_MARKETING");
-		}
-		if (username.equals("Chin2")) {
-			list.add("DEVELOPER");
-			list.add("SMB");
-		}
+		//List<String> list = new ArrayList<String>();
+		 Criteria cr = createEntityCriteria()
+				    .setProjection(Projections.projectionList()				      
+				      .add(Projections.property("ROLE"), "ROLE"))
+				    .setResultTransformer(Transformers.aliasToBean(String.class));
+
+				  List<String> list = cr.list();
 		return list;
 	}
 

@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.shoppingmart.model.FileBucket;
 import com.shoppingmart.model.User;
@@ -296,6 +297,14 @@ public class AppController {
             return "redirect:/list";  
         }
     }
+    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)   
+	public ModelAndView dashboard(){
+		ModelAndView view =new ModelAndView();
+		
+		view.setViewName("home/homePage");
+		return view;
+		
+	}
  
     /**
      * This method handles logout requests.

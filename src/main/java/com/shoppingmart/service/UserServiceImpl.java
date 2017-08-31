@@ -38,6 +38,10 @@ public class UserServiceImpl implements UserService{
         User user = dao.findBySSO(sso);
         return user;
     }
+    public User findByEmail(String email) {
+        User user = dao.findByEmail(email);
+        return user;
+    }
  
     public void saveUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -75,6 +79,10 @@ public class UserServiceImpl implements UserService{
  
     public boolean isUserSSOUnique(Integer id, String sso) {
         User user = findBySSO(sso);
+        return ( user == null || ((id != null) && (user.getId() == id)));
+    }
+    public boolean isUserEmailUnique(Integer id, String email) {
+        User user = findByEmail(email);
         return ( user == null || ((id != null) && (user.getId() == id)));
     }
     public static ProductOrder getDummyOrder(){

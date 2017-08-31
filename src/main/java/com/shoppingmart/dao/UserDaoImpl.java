@@ -66,5 +66,17 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
         User user = (User)crit.uniqueResult();
         delete(user);
     }
+
+	@Override
+	public User findByEmail(String email) {
+		logger.info("username : {}", email);
+        Criteria crit = createEntityCriteria();
+        crit.add(Restrictions.eq("email", email));
+        User user = (User)crit.uniqueResult();
+        if(user!=null){
+            Hibernate.initialize(user.getUserProfiles());
+        }
+        return user;
+	}
  
 }

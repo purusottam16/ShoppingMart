@@ -3,6 +3,7 @@ package com.shoppingmart.user.dao;
 import java.util.List;
  
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
@@ -50,5 +51,17 @@ public class UsersDaoImpl extends AbstractDao<Integer, User> implements UserDao 
         User user = (User)crit.uniqueResult();
         delete(user);
     }
+
+	@Override
+	public User findByEmail(String email) {
+		logger.info("username : {}", email);
+        Criteria crit = createEntityCriteria();
+        crit.add(Restrictions.eq("EMAIL", email));
+        User user = (User)crit.uniqueResult();
+        if(user!=null){
+            Hibernate.initialize(user.getUserProfiles());
+        }
+        return user;
+	}
  
 }

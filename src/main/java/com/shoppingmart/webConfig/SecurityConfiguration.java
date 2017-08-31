@@ -36,11 +36,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/", "/list")
+    	 http.authorizeRequests().antMatchers("/", "/newuser").permitAll();
+    	 http.authorizeRequests().antMatchers("/", "/dashboard").permitAll();
+    	http.authorizeRequests().antMatchers("/", "/list")
                 .access("hasRole('USER') or hasRole('ADMIN') or hasRole('MANAGER')")
                 .antMatchers("/newuser/**", "/delete-user-*").access("hasRole('ADMIN')").antMatchers("/edit-user-*")
                 .access("hasRole('ADMIN') or hasRole('MANAGER')").and().formLogin().loginPage("/login")
-                .loginProcessingUrl("/login").usernameParameter("ssoId").passwordParameter("password").and()
+                .loginProcessingUrl("/login").usernameParameter("email").passwordParameter("password").and()
                 .rememberMe().rememberMeParameter("remember-me").tokenRepository(tokenRepository)
                 .tokenValiditySeconds(86400).and().csrf().and().exceptionHandling().accessDeniedPage("/Access_Denied");
     }

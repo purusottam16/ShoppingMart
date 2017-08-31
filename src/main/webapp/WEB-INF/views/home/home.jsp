@@ -22,10 +22,10 @@
 <body>
 <div class="container">
  <div class="row">
-	<jsp:include page="../home/menu.jsp" />
+	<jsp:include page="../dashboard/dashboard.jsp" />
 	</div>
 		<div>
-		<jsp:include page="../home/slideShow.jsp" />
+		<%-- <jsp:include page="../home/slideImage.jsp" /> --%>
 		</div>
 	 <div class="container">
 		<div>Welcome to Shopping Mart</div>

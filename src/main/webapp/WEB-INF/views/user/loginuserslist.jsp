@@ -18,7 +18,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<jsp:include page="../home/menu.jsp" />
+			<jsp:include page="../dashboard/dashboard.jsp" />
 		</div>
 		<div class="generic-container1">
 			<%@include file="../authheader.jsp"%>

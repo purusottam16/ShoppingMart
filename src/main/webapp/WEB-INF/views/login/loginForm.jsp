@@ -14,12 +14,12 @@
 	href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
 </head>
 
-<body>
+<body id="mainWrapper">
 	<div class="container">
 		<div class="row">
 			<jsp:include page="../home/menu.jsp" />
 		</div>
-		<div id="mainWrapper">
+		<div class="form-group col-md-12">
 			<div class="login-container">
 				<div class="login-card">
 					<div class="login-form">
@@ -38,7 +38,7 @@
 							<div class="input-group input-sm">
 								<label class="input-group-addon" for="username"><i
 									class="fa fa-user"></i></label> <input type="text" class="form-control"
-									id="username" name="ssoId" placeholder="Enter Username"
+									id="username" name="email" placeholder="Enter Username"
 									required>
 							</div>
 							<div class="input-group input-sm">
@@ -65,19 +65,26 @@
 											value="Log in">
 									</div>
 									<div class="navbar-right">
-										<input type="button"
+										<a type="submit"
 											class="btn btn-block btn-primary btn-default"
 											style="width: 131%; box-shadow: -7px 1px 31px 8px black;"
-											value="Sign Up">
-									</div>
+											href="${pageContext.request.contextPath}/newuser"><strong>Sign Up</strong></a>
+									</div>									
 								</div>
 
 							</div>
-						</form>
+							</form>						
 					</div>
 				</div>
 			</div>
 		</div>
+		
 	</div>
+	<script type="text/javascript">
+	function signUp() {
+		document.getElementById('regUser').submit();
+		}
+	
+	</script>
 </body>
 </html>

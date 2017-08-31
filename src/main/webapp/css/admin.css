@@ -68,3 +68,4 @@ img {
     border: 0px solid #73AD21;
     font-size: 10px;
 }
+.label,.glyphicon { margin-right:5px; }

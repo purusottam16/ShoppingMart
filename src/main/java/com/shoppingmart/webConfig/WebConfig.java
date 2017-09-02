@@ -41,8 +41,10 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+import org.springframework.web.servlet.mvc.ParameterizableViewController;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
@@ -115,6 +117,40 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		resolver.setSuffix(".jsp");
 		return resolver;
 	}
+	/* @Bean(name = "homeViewController")
+	    public ParameterizableViewController getHomeViewController() {
+	        ParameterizableViewController viewController = new ParameterizableViewController();
+	        viewController.setViewName("/product/home");
+	        return viewController;
+	    }
+	 @Bean(name = "mensViewController")
+	    public ParameterizableViewController getMensViewController() {
+	        ParameterizableViewController viewController = new ParameterizableViewController();
+	        viewController.setViewName("/product/mens");
+	        return viewController;
+	    }
+	 @Bean(name = "womensViewController")
+	    public ParameterizableViewController getwomensViewController() {
+	        ParameterizableViewController viewController = new ParameterizableViewController();
+	        viewController.setViewName("/product/womens");
+	        return viewController;
+	    }
+	    @Bean
+	    public SimpleUrlHandlerMapping getUrlHandlerMapping() {
+	        SimpleUrlHandlerMapping handlerMapping = new SimpleUrlHandlerMapping();
+	        Properties mappings = new Properties();
+	        //mappings.put("/about.htm", "homeViewController");
+	        //mappings.put("/contact.htm", "homeViewController");
+	        //mappings.put("/home.htm", "homeViewController");
+	        //mappings.put("/icons.htm", "homeViewController");
+	        mappings.put("/mens.htm", "mensViewController");
+	       // mappings.put("/single.htm", "homeViewController");
+	        mappings.put("/womens.htm", "womensViewController");
+	        mappings.put("/typography.htm", "homeViewController");
+	         
+	        handlerMapping.setMappings(mappings);
+	        return handlerMapping;
+	    }*/
 	 private Properties hibernateProperties() {
 	        Properties properties = new Properties();
 	        properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
@@ -160,7 +196,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		registry.addResourceHandler("/less/**").addResourceLocations("/less/");
 		registry.addResourceHandler("/fonts/**").addResourceLocations("/fonts/");
 		registry.addResourceHandler("/scss/**").addResourceLocations("/scss/");
-		registry.addResourceHandler("/icons/**").addResourceLocations("/icons/");
+		registry.addResourceHandler("/icons/**").addResourceLocations("/icons/");		
 	}
 	@Bean(name="multipartResolver")
     public StandardServletMultipartResolver resolver(){

@@ -97,8 +97,8 @@ public class RegisterUserController {
          * framework as well while still using internationalized messages.
          * 
          */
-        if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
-            FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
+        if(!userService.isUserSSOUnique(user.getId(), user.getEmail())){
+            FieldError ssoError =new FieldError("user","email",messageSource.getMessage("non.unique.email", new String[]{user.getEmail()}, Locale.getDefault()));
             result.addError(ssoError);
             return "user/registration";
         }

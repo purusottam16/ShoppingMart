@@ -296,7 +296,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h3 class="agileinfo_sign">
 							Sign In <span>Now</span>
 						</h3>
-						<form:form method="POST" modelAttribute="Login" action="${pageContext.servletContext.contextPath}/login"
+						<form:form method="POST" id="loginform" modelAttribute="Login" action="${pageContext.servletContext.contextPath}/login"
 				class="styled-input agile-styled-input-top">
 						<%-- <form action="${pageContext.servletContext.contextPath}/login" method="post"> --%>
 							<div class="styled-input">
@@ -308,7 +308,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span></span>
 							</div>
 
-							<input type="submit" id="signin" value="Sign In">
+							<input type="submit" id="signin" value="Sign In" onclick="javascript:submitPost($(this));"/>
 						<%-- </form> --%>
 						</form:form>
 						<ul
@@ -2703,10 +2703,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- for bootstrap working -->
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/js/bootstrap.js"></script>
 	<script type="text/javascript">
-	$("#signin").click(function()
-			{
-			 $('#form').attr('action', '${pageContext.servletContext.contextPath}/login'); 
-			});
+	/* $("#signin").on("click", function(e){
+		e.preventDefault();
+			 $('#loginform').attr('action', '${pageContext.servletContext.contextPath}/login').submit(); 
+			}); */
+	
+	
+	function submitPost(obj) {
+	    // Form object 
+	    //console.dir(obj[0].form); 
+
+	    //Get Form Action 
+	    var formAction = obj[0].form.action;
+
+	    // POST to entered EndPoint URL 
+	    var postURL        = '${pageContext.servletContext.contextPath}/login'; 
+	    obj[0].form.action = formAction;
+
+	    console.log("Posting to => " + postURL);
+	    obj[0].form.submit();
+	}
 	</script>
 </body>
 </html>

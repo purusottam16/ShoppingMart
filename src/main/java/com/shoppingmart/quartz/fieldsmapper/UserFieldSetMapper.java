@@ -18,7 +18,7 @@ public class UserFieldSetMapper implements FieldSetMapper<User>{
         result.setFirstName(fieldSet.readString(0));
         result.setLastName(fieldSet.readString(1));//(new LocalDate(fieldSet.readDate(1,"dd/MM/yyyy")));
         result.setEmail(fieldSet.readString(2));
-        result.setSsoId(fieldSet.readString(3));
+        //result.setConfirmPassword(fieldSet.readString(3));
         Set<UserProfile> profile=new HashSet<>();
         UserProfile profile2=new UserProfile();
         		profile2.setType(fieldSet.readString(4));

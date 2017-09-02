@@ -1,6 +1,7 @@
 package com.shoppingmart.controller;
  
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
  
@@ -29,6 +30,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,6 +38,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.shoppingmart.model.FileBucket;
 import com.shoppingmart.model.User;
 import com.shoppingmart.model.UserDocument;
+import com.shoppingmart.model.UserInfo;
 import com.shoppingmart.model.UserProfile;
 import com.shoppingmart.service.UserProfileService;
 import com.shoppingmart.service.UserService;
@@ -97,7 +100,7 @@ public class AppController {
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());
         logger.info("Exiting from AppController: newUser()");
-        return "user/registerUser";
+        return "/product/index";
     }
  
     /**
@@ -108,11 +111,16 @@ public class AppController {
     public String saveUser(@Valid User user, BindingResult result,
             ModelMap model) {
     	logger.info("Entering into AppController: >>>>>>> saveUser()");
- 
+    	
         if (result.hasErrors()) {
-            return "user/registerUser";
+            return "/product/index";
         }
- 
+        if(user.getUserProfiles() == null){
+        	List<UserProfile> profiles=new ArrayList<>();
+        	UserProfile profile=new UserProfile();
+        	profile.setType("USER");
+        	profiles.add(profile);
+        }
         /*
          * Preferred way to achieve uniqueness of field [sso] should be implementing custom @Unique annotation 
          * and applying it on field [sso] of Model class [User].
@@ -121,11 +129,11 @@ public class AppController {
          * framework as well while still using internationalized messages.
          * 
          */
-        if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
+        if(!userService.isUserEmailUnique(user.getId(), user.getEmail())){
         	
-            FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
-            result.addError(ssoError);
-            return "user/registerUser";
+            FieldError emailError =new FieldError("user","email",messageSource.getMessage("non.unique.email", new String[]{user.getEmail()}, Locale.getDefault()));
+            result.addError(emailError);
+            return "/product/index";
         }
          
         userService.saveUser(user);
@@ -288,23 +296,23 @@ public class AppController {
      * This method handles login GET requests.
      * If users is already logged-in and tries to goto login page again, will be redirected to list page.
      */
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String loginPage() {
+    @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
+    public ModelAndView loginPage(@RequestParam( value="error", required=false ) String error) {
     	logger.info("Entering into AppController: >>>>>>> loginPage()");
+    	ModelAndView view =new ModelAndView();
+		User info=new User();
+		view.addObject("Login", info);
+		if(error !=null){
+			view.addObject("error", "UserName or Password is incorrect");
+		}    	
         if (isCurrentAuthenticationAnonymous()) {
-            return "login/loginForm";
+        	view.setViewName("/product/index");            
         } else {
-            return "redirect:/list";  
+        	view.setViewName("redirect:/product/index");             
         }
+        return view;
     }
-    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)   
-	public ModelAndView dashboard(){
-		ModelAndView view =new ModelAndView();
-		
-		view.setViewName("home/homePage");
-		return view;
-		
-	}
+    
  
     /**
      * This method handles logout requests.

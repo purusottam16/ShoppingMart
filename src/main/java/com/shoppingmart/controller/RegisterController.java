@@ -17,8 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.shoppingmart.model.UserInfo;
 
 @Controller
-public class LogInController {
-	static final Logger logger = LoggerFactory.getLogger(LogInController.class);
+public class RegisterController {
+	static final Logger logger = LoggerFactory.getLogger(RegisterController.class);
 	//@RequestMapping(value="/login",method =RequestMethod.GET)
 	public ModelAndView login(@RequestParam( value="error", required=false ) String error){
 		ModelAndView view =new ModelAndView();

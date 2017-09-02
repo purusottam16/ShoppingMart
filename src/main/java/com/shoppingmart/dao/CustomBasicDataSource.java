@@ -4,7 +4,7 @@ import org.apache.commons.dbcp.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.shoppingmart.controller.LogInController;
+import com.shoppingmart.controller.RegisterController;
 
 public class CustomBasicDataSource extends BasicDataSource {
 	static final Logger logger = LoggerFactory.getLogger(CustomBasicDataSource.class);

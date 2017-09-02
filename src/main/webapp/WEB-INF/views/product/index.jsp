@@ -5,7 +5,7 @@
 <html>
 <head>
 
-<title>Elite Shop</title>
+<title>Elite Plus</title>
 <!--/tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-4 logo_agile">
 				<h1>
 					<a href="${pageContext.servletContext.contextPath}/index"><span>E</span>lite
-						Shop<i class="fa fa-shopping-bag top_logo_agile_bag"
+						Plus<i class="fa fa-shopping-bag top_logo_agile_bag"
 						aria-hidden="true"></i></a>
 				</h1>
 			</div>
@@ -296,7 +296,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h3 class="agileinfo_sign">
 							Sign In <span>Now</span>
 						</h3>
-						<form action="${pageContext.servletContext.contextPath}/login" method="post">
+						<form:form method="POST" modelAttribute="Login" action="${pageContext.servletContext.contextPath}/login"
+				class="styled-input agile-styled-input-top">
+						<%-- <form action="${pageContext.servletContext.contextPath}/login" method="post"> --%>
 							<div class="styled-input">
 								<input type="email" name="email" required=""> <label>Email</label>
 								<span></span>
@@ -306,8 +308,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span></span>
 							</div>
 
-							<input type="submit" value="Sign In">
-						</form>
+							<input type="submit" id="signin" value="Sign In">
+						<%-- </form> --%>
+						</form:form>
 						<ul
 							class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
 							<li><a href="#" class="facebook">
@@ -2354,7 +2357,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-3 footer-left">
 				<h2>
 					<a href="${pageContext.servletContext.contextPath}/index"><span>E</span>lite
-						Shop </a>
+						Plus </a>
 				</h2>
 				<p>Lorem ipsum quia dolor sit amet, consectetur, adipisci velit,
 					sed quia non numquam eius modi tempora.</p>
@@ -2517,7 +2520,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"></div>
 			</div>
 			<p class="copy-right">
-				&copy 2017 Elite shop. All rights reserved | Design by <a
+				&copy 2017 Elite Plus. All rights reserved | Design by <a
 					href="">Purusottam</a>
 			</p>
 		</div>
@@ -2699,5 +2702,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<!-- for bootstrap working -->
 	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/js/bootstrap.js"></script>
+	<script type="text/javascript">
+	$("#signin").click(function()
+			{
+			 $('#form').attr('action', '${pageContext.servletContext.contextPath}/login'); 
+			});
+	</script>
 </body>
 </html>

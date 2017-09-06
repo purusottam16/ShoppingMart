@@ -142,7 +142,7 @@ public class AppController {
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
         logger.info("Exiting from AppController: saveUser()");
-        return "user/registeredsuccess";
+        return "/product/index";
     }
  
  
@@ -297,20 +297,23 @@ public class AppController {
      * If users is already logged-in and tries to goto login page again, will be redirected to list page.
      */
     @RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
-    public ModelAndView loginPage(@RequestParam( value="error", required=false ) String error) {
+    public String loginPage(@RequestParam( value="error", required=false ) String error) {
     	logger.info("Entering into AppController: >>>>>>> loginPage()");
-    	ModelAndView view =new ModelAndView();
+    	//ModelAndView view =new ModelAndView();
 		User info=new User();
-		view.addObject("Login", info);
+		//view.addObject("login", info);
+		//view.addObject("user", info);
 		if(error !=null){
-			view.addObject("error", "UserName or Password is incorrect");
+			return "redirect:/dashboard.htm";
+			//view.addObject("error", "UserName or Password is incorrect");
 		}    	
         if (isCurrentAuthenticationAnonymous()) {
-        	view.setViewName("/product/index");            
+        	return "redirect:/dashboard.htm";
+        	//view.setViewName("/product/index");            
         } else {
-        	view.setViewName("redirect:/product/index");             
+        	return "redirect:/dashboard.htm";             
         }
-        return view;
+       // return view;
     }
     
  
@@ -328,7 +331,7 @@ public class AppController {
             SecurityContextHolder.getContext().setAuthentication(null);
         }
         logger.info("Exiting from AppController: logoutPage()");
-        return "redirect:/login?logout";
+        return "redirect:/dashboard.htm";
     }
  
     /**

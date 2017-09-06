@@ -14,8 +14,10 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 </script>
 <!--//tags -->
@@ -51,9 +53,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					01234567898</li>
 				<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a
 					href="mailto:info@example.com">info@example.com</a></li>
+				<c:if test="${loggedinuser != null}">
+					<li class="dropdown"><a href="#"
+						class="fa fa-user dropdown-toggle" data-toggle="dropdown">Welcome,
+							<strong>${loggedinuser}</strong> <b class="caret"></b>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a
+								href="${pageContext.servletContext.contextPath}/edit-user-{user.email}"><i
+									class="fa fa-cog" aria-hidden="true"></i> Preferences</a></li>
+							<li><a href="/help/support"><i class="fa fa-phone"></i>
+									Contact</a></li>
+							<!--  <li class="divider"></li> -->
+							<li><a
+								href="${pageContext.servletContext.contextPath}/logout"><i
+									class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
+						</ul></li>
+				</c:if>
+
 			</ul>
+			<!-- <div class="pull-right">
+                <ul class="nav pull-right">
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/user/preferences"><i class="icon-cog"></i> Preferences</a></li>
+                            <li><a href="/help/support"><i class="icon-envelope"></i> Contact Support</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/auth/logout"><i class="icon-off"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+              </div> -->
 		</div>
 	</div>
+
+
 	<!-- //header -->
 	<!-- header-bot -->
 	<div class="header-bot">
@@ -296,9 +330,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h3 class="agileinfo_sign">
 							Sign In <span>Now</span>
 						</h3>
-						<form:form method="POST" id="loginform" modelAttribute="Login" action="${pageContext.servletContext.contextPath}/login"
-				class="styled-input agile-styled-input-top">
-						<%-- <form action="${pageContext.servletContext.contextPath}/login" method="post"> --%>
+						<%-- <form:form method="POST" id="loginform" modelAttribute="login" action="${pageContext.servletContext.contextPath}/login"
+				class="styled-input agile-styled-input-top"> --%>
+						<form action="${pageContext.servletContext.contextPath}/login"
+							method="post">
 							<div class="styled-input">
 								<input type="email" name="email" required=""> <label>Email</label>
 								<span></span>
@@ -307,10 +342,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<input type="password" name="password" required=""> <label>Password</label>
 								<span></span>
 							</div>
-
-							<input type="submit" id="signin" value="Sign In" onclick="javascript:submitPost($(this));"/>
-						<%-- </form> --%>
-						</form:form>
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" /> <input type="submit" id="signin"
+								value="Sign In">
+						</form>
+						<%-- </form:form> --%>
 						<ul
 							class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
 							<li><a href="#" class="facebook">
@@ -378,37 +414,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h3 class="agileinfo_sign">
 							Sign Up <span>Now</span>
 						</h3>
-						<form:form method="POST" modelAttribute="user" action="${pageContext.servletContext.contextPath}/newuser"
-				class="styled-input agile-styled-input-top">
-				<form:input type="hidden" path="id" id="id" />
-				<div class="styled-input agile-styled-input-top">
-							<form:input type="text" path="firstName" id="firstName"
-								 /><label>First Name</label>
-							<div class="has-error">
-								<form:errors path="firstName" class="help-inline" />
-							</div>
-						</div>
-						<div class="styled-input">
-							<form:input type="text" path="lastName" id="lasName"
-								 /><label>Last Name</label>
-							<div class="has-error">
-								<form:errors path="lastName" class="help-inline" />
-							</div>
-						</div>
-						<div class="styled-input">
-						<form:input type="text" path="email" id="email"/><label>Email</label>
-							</div>
-							
-							<div class="styled-input">
-								<form:input type="password" path="password" required=""/> <label>Password</label>
-								<span></span>
+						<form:form method="POST" modelAttribute="user"
+							action="${pageContext.servletContext.contextPath}/newuser"
+							class="styled-input agile-styled-input-top">
+							<form:input type="hidden" path="id" id="id" />
+							<div class="styled-input agile-styled-input-top">
+								<form:input type="text" path="firstName" id="firstName" />
+								<label>First Name</label>
+								<div class="has-error">
+									<form:errors path="firstName" class="help-inline" />
+								</div>
 							</div>
 							<div class="styled-input">
-								<input type="password" name="confirmPassword" required=""/>
-								<label>Confirm Password</label> <span></span>
+								<form:input type="text" path="lastName" id="lasName" />
+								<label>Last Name</label>
+								<div class="has-error">
+									<form:errors path="lastName" class="help-inline" />
+								</div>
+							</div>
+							<div class="styled-input">
+								<form:input type="text" path="email" id="email" />
+								<label>Email</label>
+							</div>
+
+							<div class="styled-input">
+								<form:input type="password" path="password" required="" />
+								<label>Password</label> <span></span>
+							</div>
+							<div class="styled-input">
+								<input type="password" name="confirmPassword" required="" /> <label>Confirm
+									Password</label> <span></span>
 							</div>
 							<input type="submit" value="Sign Up">
-							</form:form>
+						</form:form>
 						<!-- <form action="#" method="post">
 							<div class="styled-input agile-styled-input-top">
 								<input type="text" name="Name" required=""> <label>Name</label>
@@ -2520,8 +2558,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"></div>
 			</div>
 			<p class="copy-right">
-				&copy 2017 Elite Plus. All rights reserved | Design by <a
-					href="">Purusottam</a>
+				&copy 2017 Elite Plus. All rights reserved | Design by <a href="">Purusottam</a>
 			</p>
 		</div>
 	</div>
@@ -2616,12 +2653,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</a>
 
 	<!-- js -->
-	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.servletContext.contextPath}/js/jquery-2.1.4.min.js"></script>
 	<!-- //js -->
-	<script src="${pageContext.servletContext.contextPath}/js/modernizr.custom.js"></script>
+	<script
+		src="${pageContext.servletContext.contextPath}/js/modernizr.custom.js"></script>
 	<!-- Custom-JavaScript-File-Links -->
 	<!-- cart-js -->
-	<script src="${pageContext.servletContext.contextPath}/js/minicart.min.js"></script>
+	<script
+		src="${pageContext.servletContext.contextPath}/js/minicart.min.js"></script>
 	<script>
 		// Mini Cart
 		paypal.minicart.render({
@@ -2635,7 +2675,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<!-- //cart-js -->
 	<!-- script for responsive tabs -->
-	<script src="${pageContext.servletContext.contextPath}/js/easy-responsive-tabs.js"></script>
+	<script
+		src="${pageContext.servletContext.contextPath}/js/easy-responsive-tabs.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('#horizontalTab').easyResponsiveTabs({
@@ -2660,15 +2701,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	<!-- //script for responsive tabs -->
 	<!-- stats -->
-	<script src="${pageContext.servletContext.contextPath}/js/jquery.waypoints.min.js"></script>
-	<script src="${pageContext.servletContext.contextPath}/js/jquery.countup.js"></script>
+	<script
+		src="${pageContext.servletContext.contextPath}/js/jquery.waypoints.min.js"></script>
+	<script
+		src="${pageContext.servletContext.contextPath}/js/jquery.countup.js"></script>
 	<script>
 		$('.counter').countUp();
 	</script>
 	<!-- //stats -->
 	<!-- start-smoth-scrolling -->
-	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/js/move-top.js"></script>
-	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/js/jquery.easing.min.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.servletContext.contextPath}/js/move-top.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.servletContext.contextPath}/js/jquery.easing.min.js"></script>
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event) {
@@ -2679,6 +2724,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 		});
 	</script>
+
 	<!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -2701,28 +2747,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 	<!-- for bootstrap working -->
-	<script type="text/javascript" src="${pageContext.servletContext.contextPath}/js/bootstrap.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.servletContext.contextPath}/js/bootstrap.js"></script>
 	<script type="text/javascript">
-	/* $("#signin").on("click", function(e){
-		e.preventDefault();
-			 $('#loginform').attr('action', '${pageContext.servletContext.contextPath}/login').submit(); 
-			}); */
-	
-	
-	function submitPost(obj) {
-	    // Form object 
-	    //console.dir(obj[0].form); 
-
-	    //Get Form Action 
-	    var formAction = obj[0].form.action;
-
-	    // POST to entered EndPoint URL 
-	    var postURL        = '${pageContext.servletContext.contextPath}/login'; 
-	    obj[0].form.action = formAction;
-
-	    console.log("Posting to => " + postURL);
-	    obj[0].form.submit();
-	}
+		/* $("#signin").on("click", function(e){
+			e.preventDefault();
+				 $('#loginform').attr('action', '${pageContext.servletContext.contextPath}/login').submit(); 
+				}); */
 	</script>
+	<script type="text/javascript">
+		function DropDown(el) {
+			this.dd = el;
+			this.initEvents();
+		}
+		DropDown.prototype = {
+			initEvents : function() {
+				var obj = this;
+
+				obj.dd.on('click', function(event) {
+					$(this).toggleClass('active');
+					event.stopPropagation();
+				});
+			}
+		}
+		$(function() {
+
+			var dd = new DropDown($('#dd'));
+
+			$(document).click(function() {
+				// all dropdowns
+				$('.wrapper-dropdown-2').removeClass('active');
+			});
+
+		});
+	</script>
+
 </body>
 </html>

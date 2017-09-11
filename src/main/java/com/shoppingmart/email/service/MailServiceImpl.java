@@ -57,14 +57,15 @@ public class MailServiceImpl implements MailService{
             public void prepare(MimeMessage mimeMessage) throws Exception {
                 MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
   
-                helper.setSubject("Your order on Demoapp with Templates");
-                helper.setFrom("purusottam16@gmail.com");
+                helper.setSubject("Your order on Elite Plus Shopping");
+                helper.setFrom("doNotReply@gmail.com");
                 helper.setTo(order.getCustomerInfo().getEmail());
              
                 Map<String, Object> model = new HashMap<String, Object>();
                 model.put("order", order);
                  
-                String text = geFreeMarkerTemplateContent(model);//Use Freemarker or Velocity
+                //String text = geFreeMarkerTemplateContent(model);//Use Freemarker or Velocity
+                String text = geVelocityTemplateContent(model);
                 System.out.println("Template content : "+text);
  
                 // use the true flag to indicate you need a multipart message

@@ -15,13 +15,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript">
 	
 	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
 
 
+
+
 </script>
 <!--//tags -->
-<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon"
+	href="${pageContext.servletContext.contextPath}/icons/favicon.ico"
+	type="image/x-icon" />
 <link href="${pageContext.servletContext.contextPath}/css/bootstrap.css"
 	rel="stylesheet" type="text/css" media="all" />
 <link href="${pageContext.servletContext.contextPath}/css/style.css"
@@ -53,22 +59,92 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					01234567898</li>
 				<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a
 					href="mailto:info@example.com">info@example.com</a></li>
+
 				<c:if test="${loggedinuser != null}">
-					<li class="dropdown"><a href="#"
-						class="fa fa-user dropdown-toggle" data-toggle="dropdown">Welcome,
-							<strong>${loggedinuser}</strong> <b class="caret"></b>
-					</a>
-						<ul class="dropdown-menu">
-							<li><a
-								href="${pageContext.servletContext.contextPath}/edit-user-{user.email}"><i
-									class="fa fa-cog" aria-hidden="true"></i> Preferences</a></li>
-							<li><a href="/help/support"><i class="fa fa-phone"></i>
-									Contact</a></li>
-							<!--  <li class="divider"></li> -->
-							<li><a
-								href="${pageContext.servletContext.contextPath}/logout"><i
-									class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
-						</ul></li>
+				<li><a href="#" data-toggle="modal" data-target="#myModal0"><i
+						class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Account </a></li>
+				
+				
+				
+				
+				
+				<div class="modal fade" id="myModal0" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body modal-body-sub_agile">
+					<div class="col-md-8 modal_body_left modal_body_left1">
+						<h3 class="agileinfo_sign">
+							Edit<span> Account</span>
+						</h3>
+						<%-- <form:form method="POST" id="loginform" modelAttribute="login" action="${pageContext.servletContext.contextPath}/login"
+				class="styled-input agile-styled-input-top"> --%>
+						
+						<%-- </form:form> --%>
+						
+						<div class="clearfix"></div>
+						<li class="menu__item dropdown"><a class="menu__link"
+									href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, ${loggedinuser}
+								</a>
+									<ul class="dropdown-menu agile_short_dropdown">
+										<li><a
+											href="${pageContext.servletContext.contextPath}/edit-user-{user.email}">Preferences</a></li>
+										<li><a
+											href="${pageContext.servletContext.contextPath}/logout">Logout</a></li>
+									</ul></li>				
+
+					</div>
+					<div class="col-md-4 modal_body_right modal_body_right1">
+						<img
+							src="${pageContext.servletContext.contextPath}/images/img/log_pic.jpg"
+							alt=" " />
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<!-- //Modal content-->
+		</div>
+	</div>
+				
+				
+				
+				
+				<%-- <li class="dropdown menu__item" tabindex="-1" role="dialog"><a href="#"
+									class="dropdown-toggle menu__link" data-toggle="dropdown"
+									role="button" aria-haspopup="true" aria-expanded="false">Welcome, <strong>${loggedinuser}</strong><span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu agile_short_dropdown">
+										<li><a
+											href="${pageContext.servletContext.contextPath}/edit-user-{user.email}">Preferences</a></li>
+											<li><a href="/help/support"><i class="fa fa-phone"></i>
+										Contact</a></li>
+										<li><a
+											href="${pageContext.servletContext.contextPath}/logout">Logout</a></li>
+									</ul></li> --%>
+									
+					<%-- <li class="dropdown menu__item" tabindex="-1" role="dialog">
+						<div class="" >
+							<a href="#" class="fa fa-user dropdown-toggle"
+								data-toggle="dropdown">Welcome, </strong>
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a
+									href="${pageContext.servletContext.contextPath}/edit-user-{user.email}"><i
+										class="fa fa-cog" aria-hidden="true"></i> Preferences</a></li>
+								<li><a href="/help/support"><i class="fa fa-phone"></i>
+										Contact</a></li>
+								<!--  <li class="divider"></li> -->
+								<li><a
+									href="${pageContext.servletContext.contextPath}/logout"><i
+										class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
+							</ul>
+						</div>
+					</li> --%>
+
 				</c:if>
 
 			</ul>
@@ -102,7 +178,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- header-bot ,put logo in bellow div class -->
 			<div class="col-md-4 logo_agile">
 				<h1>
-					<a href="${pageContext.servletContext.contextPath}/index"><span>E</span>lite
+					<a href="${pageContext.servletContext.contextPath}/dashboard.htm"><span>E</span>lite
 						Plus<i class="fa fa-shopping-bag top_logo_agile_bag"
 						aria-hidden="true"></i></a>
 				</h1>
@@ -175,10 +251,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<ul class="nav navbar-nav menu__list">
 								<li class="active menu__item menu__item--current"><a
 									class="menu__link"
-									href="${pageContext.servletContext.contextPath}/index">Home
+									href="${pageContext.servletContext.contextPath}/dashboard.htm">Home
 										<span class="sr-only">(current)</span>
 								</a></li>
-								<li class=" menu__item"><a class="menu__link" href="/about">About</a></li>
+								<li class=" menu__item"><a class="menu__link"
+									href="${pageContext.servletContext.contextPath}/about.htm">About</a></li>
 								<li class="dropdown menu__item"><a href="#"
 									class="dropdown-toggle menu__link" data-toggle="dropdown"
 									role="button" aria-haspopup="true" aria-expanded="false">Men's
@@ -187,45 +264,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<ul class="dropdown-menu multi-column columns-3">
 										<div class="agile_inner_drop_nav_info">
 											<div class="col-sm-6 multi-gd-img1 multi-gd-text ">
-												<a href="${pageContext.servletContext.contextPath}/mens"><img
+												<a href="${pageContext.servletContext.contextPath}/mens.htm"><img
 													src="${pageContext.servletContext.contextPath}/images/img/top2.jpg"
 													alt=" " /></a>
 											</div>
 											<div class="col-sm-3 multi-gd-img">
 												<ul class="multi-column-dropdown">
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Clothing</a></li>
+														href="${pageContext.servletContext.contextPath}/mens.htm">Clothing</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Wallets</a></li>
+														href="${pageContext.servletContext.contextPath}/mens.htm">Wallets</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Footwear</a></li>
+														href="${pageContext.servletContext.contextPath}/mens.htm">Footwear</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Watches</a></li>
+														href="${pageContext.servletContext.contextPath}/mens.htm">Watches</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Accessories</a></li>
+														href="${pageContext.servletContext.contextPath}/mens.htm">Accessories</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Bags</a></li>
+														href="${pageContext.servletContext.contextPath}/mens.htm">Bags</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Caps
+														href="${pageContext.servletContext.contextPath}/mens.htm">Caps
 															& Hats</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-3 multi-gd-img">
 												<ul class="multi-column-dropdown">
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Jewellery</a></li>
+														href="${pageContext.servletContext.contextPath}/mens.htm">Jewellery</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Sunglasses</a></li>
+														href="${pageContext.servletContext.contextPath}/mens.htm">Sunglasses</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Perfumes</a></li>
+														href="${pageContext.servletContext.contextPath}/mens.htm">Perfumes</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Beauty</a></li>
+														href="${pageContext.servletContext.contextPath}/mens.htm">Beauty</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Shirts</a></li>
+														href="${pageContext.servletContext.contextPath}/mens.htm">Shirts</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Sunglasses</a></li>
+														href="${pageContext.servletContext.contextPath}/mens.htm">Sunglasses</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/mens">Swimwear</a></li>
+														href="${pageContext.servletContext.contextPath}/mens.htm">Swimwear</a></li>
 												</ul>
 											</div>
 											<div class="clearfix"></div>
@@ -241,42 +318,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="col-sm-3 multi-gd-img">
 												<ul class="multi-column-dropdown">
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Clothing</a></li>
+														href="${pageContext.servletContext.contextPath}/womens.htm">Clothing</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Wallets</a></li>
+														href="${pageContext.servletContext.contextPath}/womens.htm">Wallets</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Footwear</a></li>
+														href="${pageContext.servletContext.contextPath}/womens.htm">Footwear</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Watches</a></li>
+														href="${pageContext.servletContext.contextPath}/womens.htm">Watches</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Accessories</a></li>
+														href="${pageContext.servletContext.contextPath}/womens.htm">Accessories</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Bags</a></li>
+														href="${pageContext.servletContext.contextPath}/womens.htm">Bags</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Caps
+														href="${pageContext.servletContext.contextPath}/womens.htm">Caps
 															& Hats</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-3 multi-gd-img">
 												<ul class="multi-column-dropdown">
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Jewellery</a></li>
+														href="${pageContext.servletContext.contextPath}/womens.htm">Jewellery</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Sunglasses</a></li>
+														href="${pageContext.servletContext.contextPath}/womens.htm">Sunglasses</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Perfumes</a></li>
+														href="${pageContext.servletContext.contextPath}/womens.htm">Perfumes</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Beauty</a></li>
+														href="${pageContext.servletContext.contextPath}/womens.htm">Beauty</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Shirts</a></li>
+														href="${pageContext.servletContext.contextPath}/womens.htm">Shirts</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Sunglasses</a></li>
+														href="${pageContext.servletContext.contextPath}/womens.htm">Sunglasses</a></li>
 													<li><a
-														href="${pageContext.servletContext.contextPath}/womens">Swimwear</a></li>
+														href="${pageContext.servletContext.contextPath}/womens.htm">Swimwear</a></li>
 												</ul>
 											</div>
 											<div class="col-sm-6 multi-gd-img multi-gd-text ">
-												<a href="${pageContext.servletContext.contextPath}/womens"><img
+												<a
+													href="${pageContext.servletContext.contextPath}/womens.htm"><img
 													src="${pageContext.servletContext.contextPath}/images/img/top1.jpg"
 													alt=" " /></a>
 											</div>
@@ -289,13 +367,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</a>
 									<ul class="dropdown-menu agile_short_dropdown">
 										<li><a
-											href="${pageContext.servletContext.contextPath}/icons">Web
+											href="${pageContext.servletContext.contextPath}/icons.htm">Web
 												Icons</a></li>
 										<li><a
-											href="${pageContext.servletContext.contextPath}/typography">Typography</a></li>
+											href="${pageContext.servletContext.contextPath}/typography.htm">Typography</a></li>
 									</ul></li>
 								<li class=" menu__item"><a class="menu__link"
-									href="${pageContext.servletContext.contextPath}/contact">Contact</a></li>
+									href="${pageContext.servletContext.contextPath}/contact.htm">Contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -316,6 +394,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</div>
 	</div>
+	<div class="fb-login-button" data-max-rows="1" data-size="large"
+		data-button-type="login_with" data-show-faces="false"
+		data-auto-logout-link="true" data-use-continue-as="false"></div>
 	<!-- //banner-top -->
 	<!-- Modal1 -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
@@ -349,7 +430,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<%-- </form:form> --%>
 						<ul
 							class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
-							<li><a href="#" class="facebook">
+							<li><a
+								href="${pageContext.servletContext.contextPath}/request/auth?provider=facebook"
+								class="facebook">
 									<div class="front">
 										<i class="fa fa-facebook" aria-hidden="true"></i>
 									</div>
@@ -539,7 +622,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</h3>
 						<p>Special for today</p>
 						<a class="hvr-outline-out button2"
-							href="${pageContext.servletContext.contextPath}/mens">Shop
+							href="${pageContext.servletContext.contextPath}/mens.htm">Shop
 							Now </a>
 					</div>
 				</div>
@@ -552,7 +635,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</h3>
 						<p>New Arrivals On Sale</p>
 						<a class="hvr-outline-out button2"
-							href="${pageContext.servletContext.contextPath}/mens">Shop
+							href="${pageContext.servletContext.contextPath}/mens.htm">Shop
 							Now </a>
 					</div>
 				</div>
@@ -565,7 +648,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</h3>
 						<p>Special for today</p>
 						<a class="hvr-outline-out button2"
-							href="${pageContext.servletContext.contextPath}/mens">Shop
+							href="${pageContext.servletContext.contextPath}/mens.htm">Shop
 							Now </a>
 					</div>
 				</div>
@@ -578,7 +661,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</h3>
 						<p>New Arrivals On Sale</p>
 						<a class="hvr-outline-out button2"
-							href="${pageContext.servletContext.contextPath}/mens">Shop
+							href="${pageContext.servletContext.contextPath}/mens.htm">Shop
 							Now </a>
 					</div>
 				</div>
@@ -591,7 +674,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</h3>
 						<p>Special for today</p>
 						<a class="hvr-outline-out button2"
-							href="${pageContext.servletContext.contextPath}/mens">Shop
+							href="${pageContext.servletContext.contextPath}/mens.htm">Shop
 							Now </a>
 					</div>
 				</div>
@@ -685,7 +768,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</h3>
 
 			<div class="col-md-5 bb-grids bb-left-agileits-w3layouts">
-				<a href="/${pageContext.servletContext.contextPath}/womens">
+				<a href="/${pageContext.servletContext.contextPath}/womens.htm">
 					<div class="bb-left-agileits-w3layouts-inner grid">
 						<figure class="effect-roxy">
 							<img
@@ -702,7 +785,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</a>
 			</div>
 			<div class="col-md-7 bb-grids bb-middle-agileits-w3layouts">
-				<a href="${pageContext.servletContext.contextPath}/mens">
+				<a href="${pageContext.servletContext.contextPath}/mens.htm">
 					<div class="bb-middle-agileits-w3layouts grid">
 						<figure class="effect-roxy">
 							<img
@@ -716,7 +799,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</figcaption>
 						</figure>
 					</div>
-				</a> <a href="${pageContext.servletContext.contextPath}/mens">
+				</a> <a href="${pageContext.servletContext.contextPath}/mens.htm">
 					<div class="bb-middle-agileits-w3layouts forth grid">
 						<figure class="effect-roxy">
 							<img
@@ -738,7 +821,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--/grids-->
 	<div class="agile_last_double_sectionw3ls">
 		<div class="col-md-6 multi-gd-img multi-gd-text ">
-			<a href="${pageContext.servletContext.contextPath}/womens"><img
+			<a href="${pageContext.servletContext.contextPath}/womens.htm"><img
 				src="${pageContext.servletContext.contextPath}/images/img/bot_1.jpg"
 				alt=" ">
 				<h4>
@@ -747,7 +830,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		</div>
 		<div class="col-md-6 multi-gd-img multi-gd-text ">
-			<a href="${pageContext.servletContext.contextPath}/womens"><img
+			<a href="${pageContext.servletContext.contextPath}/womens.htm"><img
 				src="${pageContext.servletContext.contextPath}/images/img/bot_2.jpg"
 				alt=" ">
 				<h4>
@@ -2394,7 +2477,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="footer_agile_inner_info_w3l">
 			<div class="col-md-3 footer-left">
 				<h2>
-					<a href="${pageContext.servletContext.contextPath}/index"><span>E</span>lite
+					<a href="${pageContext.servletContext.contextPath}/dashboard.htm"><span>E</span>lite
 						Plus </a>
 				</h2>
 				<p>Lorem ipsum quia dolor sit amet, consectetur, adipisci velit,
@@ -2442,18 +2525,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</h4>
 						<ul>
 							<li><a
-								href="${pageContext.servletContext.contextPath}/index">Home</a></li>
-							<li><a href="${pageContext.servletContext.contextPath}/mens">Men's
+								href="${pageContext.servletContext.contextPath}/dashboard.htm">Home</a></li>
+							<li><a
+								href="${pageContext.servletContext.contextPath}/mens.htm">Men's
 									Wear</a></li>
 							<li><a
-								href="${pageContext.servletContext.contextPath}/womens">Women's
+								href="${pageContext.servletContext.contextPath}/womens.htm">Women's
 									wear</a></li>
-							<li><a href="/about">About</a></li>
 							<li><a
-								href="${pageContext.servletContext.contextPath}/typography">Short
+								href="${pageContext.servletContext.contextPath}/about.htm">About</a></li>
+							<li><a
+								href="${pageContext.servletContext.contextPath}/typography.htm">Short
 									Codes</a></li>
 							<li><a
-								href="${pageContext.servletContext.contextPath}/contact">Contact</a></li>
+								href="${pageContext.servletContext.contextPath}/contact.htm">Contact</a></li>
 						</ul>
 					</div>
 
@@ -2782,5 +2867,67 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	</script>
 
+
+	<div id="fb-root">
+		<fb:login-button scope="public_profile,email"
+			onlogin="checkLoginState();">
+		</fb:login-button>
+	</div>
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id))
+				return;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10&appId=1924530464539323";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+
+		function checkLoginState() {
+			FB.getLoginStatus(function(response) {
+				statusChangeCallback(response);
+			});
+		}
+
+		// This is called with the results from from FB.getLoginStatus().
+		function statusChangeCallback(response) {
+			console.log('statusChangeCallback');
+			console.log(response);
+			// The response object is returned with a status field that lets the
+			// app know the current login status of the person.
+			// Full docs on the response object can be found in the documentation
+			// for FB.getLoginStatus().
+			if (response.status === 'connected') {
+				// Logged into your app and Facebook.
+				testAPI();
+			} else {
+				// The person is not logged into your app or we are unable to tell.
+				document.getElementById('status').innerHTML = 'Please log '
+						+ 'into this app.';
+			}
+		}
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId : '1924530464539323',
+				cookie : true, // enable cookies to allow the server to access 
+				// the session
+				xfbml : true, // parse social plugins on this page
+				version : 'v2.10' // use graph api version 2.8
+			});
+		}
+		function testAPI() {
+			console.log('Welcome!  Fetching your information.... ');
+			FB
+					.api(
+							'/me',
+							function(response) {
+								console.log('Successful login for: '
+										+ response.name);
+								document.getElementById('status').innerHTML = 'Thanks for logging in, '
+										+ response.name + '!';
+							});
+		}
+	</script>
 </body>
 </html>

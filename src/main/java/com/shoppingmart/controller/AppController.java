@@ -113,7 +113,7 @@ public class AppController {
     	logger.info("Entering into AppController: >>>>>>> saveUser()");
     	
         if (result.hasErrors()) {
-            return "/product/index";
+            return "redirect:/dashboard.htm";
         }
         if(user.getUserProfiles() == null){
         	List<UserProfile> profiles=new ArrayList<>();
@@ -133,7 +133,7 @@ public class AppController {
         	
             FieldError emailError =new FieldError("user","email",messageSource.getMessage("non.unique.email", new String[]{user.getEmail()}, Locale.getDefault()));
             result.addError(emailError);
-            return "/product/index";
+            return "redirect:/dashboard.htm";
         }
          
         userService.saveUser(user);
@@ -142,7 +142,7 @@ public class AppController {
         model.addAttribute("loggedinuser", getPrincipal());
         //return "success";
         logger.info("Exiting from AppController: saveUser()");
-        return "/product/index";
+        return "redirect:/dashboard.htm";
     }
  
  

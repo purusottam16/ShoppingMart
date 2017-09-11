@@ -5,7 +5,7 @@ public class AppConstant {
 
 	public static final String PROVIDER = "provider";
 	public static final String REDIRECT = "redirect:";
-	public static final String INDEX = "index";
+	public static final String INDEX = "dashboard";
 	public static final String SUCCESS = "success";
 	public static final String DELIM_QUESTION = "?";
 	public static final String GMAIL_SCOPE = "scope";

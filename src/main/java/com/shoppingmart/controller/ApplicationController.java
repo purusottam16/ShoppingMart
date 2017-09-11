@@ -25,7 +25,7 @@ public class ApplicationController {
 		logger.info("Exiting from ApplicationController: womenItems()");
 		return "/product/womens";
 	}
-
+	
 	@RequestMapping(value = { "/about.htm" }, method = RequestMethod.GET)
 	public String about(ModelMap model) {
 		logger.info("Entering into ApplicationController: >>>>>>> aboutItems()");
@@ -34,6 +34,15 @@ public class ApplicationController {
         model.addAttribute("loggedinuser", getPrincipal());
 		logger.info("Exiting from ApplicationController: aboutItems()");
 		return "/product/about";
+	}
+	@RequestMapping(value = { "/edit.htm" }, method = RequestMethod.GET)
+	public String editAccount(ModelMap model) {
+		logger.info("Entering into ApplicationController: >>>>>>> aboutItems()");
+		User user = new User();
+        model.addAttribute("user", user);
+        model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from ApplicationController: aboutItems()");
+		return "/product/customer-account";
 	}
 
 	@RequestMapping(value = { "/contact.htm" }, method = RequestMethod.GET)

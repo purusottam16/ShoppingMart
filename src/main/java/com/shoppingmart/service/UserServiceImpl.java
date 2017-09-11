@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService{
     public void saveUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         dao.save(user);        
-		orderService.sendOrderConfirmation(getDummyOrder());
+		orderService.sendOrderConfirmation(getDummyOrder(user));
     }
  
     /*
@@ -86,16 +86,16 @@ public class UserServiceImpl implements UserService{
         User user = findByEmail(email);
         return ( user == null || ((id != null) && (user.getId() == id)));
     }
-    public static ProductOrder getDummyOrder(){
+    public static ProductOrder getDummyOrder(User user){
 		ProductOrder order = new ProductOrder();
 		order.setOrderId("1111");
 		order.setProductName("Thinkpad T510");
 		order.setStatus("confirmed");
 		
 		CustomerInfo customerInfo = new CustomerInfo();
-		customerInfo.setName("Purusottam Admin");
-		customerInfo.setAddress("WallStreet");
-		customerInfo.setEmail("purusottam16@gmail.com");
+		customerInfo.setName(user.getFirstName());
+		customerInfo.setAddress("Bangalore");
+		customerInfo.setEmail(user.getEmail());
 		order.setCustomerInfo(customerInfo);
 		return order;
 	}

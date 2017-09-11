@@ -23,6 +23,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.format.FormatterRegistry;
@@ -55,10 +56,10 @@ import com.shoppingmart.converter.RoleToUserProfileConverter;
 @EnableWebMvc
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({"com.shoppingmart"})
+@ComponentScan({"com.shoppingmart.*"})
 @Import({SecurityConfiguration.class})
 @ImportResource(value={})
-@PropertySource(value= {"classpath:conf/jdbc.properties"})
+@PropertySource(value= {"classpath:conf/jdbc.properties","classpath:conf/ApplicationAuthTocken.properties"})
 public class WebConfig extends WebMvcConfigurerAdapter{
 	static final Logger logger = LoggerFactory.getLogger(WebConfig.class);
 
@@ -151,6 +152,10 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 	        handlerMapping.setMappings(mappings);
 	        return handlerMapping;
 	    }*/
+		@Bean
+		 public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() {
+		  return new PropertySourcesPlaceholderConfigurer();
+		 }
 	 private Properties hibernateProperties() {
 	        Properties properties = new Properties();
 	        properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
@@ -165,7 +170,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 	    public LocalSessionFactoryBean sessionFactory() throws NamingException, SQLException {
 	        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 	        sessionFactory.setDataSource(getGataSource());
-	        sessionFactory.setPackagesToScan(new String[] { "com.shoppingmart.model" });
+	        sessionFactory.setPackagesToScan(new String[] { "com.shoppingmart.model.*" });
 	        sessionFactory.setHibernateProperties(hibernateProperties());
 	        return sessionFactory;
 	     }
@@ -202,6 +207,13 @@ public class WebConfig extends WebMvcConfigurerAdapter{
     public StandardServletMultipartResolver resolver(){
         return new StandardServletMultipartResolver();
     }
+	/*@Bean
+    public MultipartConfigElement multipartConfigElement() {
+        MultipartConfigFactory factory = new MultipartConfigFactory();
+        factory.setMaxFileSize("128KB");
+        factory.setMaxRequestSize("128KB");
+        return factory.createMultipartConfig();
+    }*/
 	/**Optional. It's only required when handling '.' in @PathVariables which otherwise ignore everything after last '.' in @PathVaidables argument.
      * It's a known bug in Spring [https://jira.spring.io/browse/SPR-6164], still present in Spring 4.1.7.
      * This is a workaround for this issue.
@@ -219,8 +231,8 @@ public class WebConfig extends WebMvcConfigurerAdapter{
         // Using gmail.
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
-        mailSender.setUsername("purusottam16@gamil.com");
-        mailSender.setPassword("auhzatpzipseszvd");
+        mailSender.setUsername("purusottam16@gmail.com");
+        mailSender.setPassword("9931853560");
  
         Properties javaMailProperties = new Properties();
         javaMailProperties.put("mail.smtp.starttls.enable", "true");

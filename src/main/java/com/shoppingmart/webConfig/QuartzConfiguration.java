@@ -12,7 +12,7 @@ import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
 
 import com.shoppingmart.quartz.job.MyJobTwo;
 @Configuration 
-@ComponentScan("com.concretepage") 
+@ComponentScan(" com.shoppingmart.quartz.job") 
 public class QuartzConfiguration {
 	@Bean
 	public MethodInvokingJobDetailFactoryBean methodInvokingJobDetailFactoryBean() {
@@ -41,6 +41,7 @@ public class QuartzConfiguration {
 		factory.setJobDataAsMap(map);
 		factory.setGroup("mygroup");
 		factory.setName("myjob");
+		factory.setDurability(true);
 		return factory;
 	}
 	//Job is scheduled after every 1 minute 
@@ -51,13 +52,15 @@ public class QuartzConfiguration {
 		stFactory.setStartDelay(3000);
 		stFactory.setName("mytrigger");
 		stFactory.setGroup("mygroup");
-		stFactory.setCronExpression("0 0/1 * 1/1 * ? *");
+		//stFactory.setCronExpression("0 0/1 * 1/1 * ? *"); // crown Expression for week days at specific time(10:20)
+		stFactory.setCronExpression("0 30-50 10-11 ? * TUE-FRI *");
 		return stFactory;
 	}
 	@Bean
 	public SchedulerFactoryBean schedulerFactoryBean() {
 		SchedulerFactoryBean scheduler = new SchedulerFactoryBean();
-		scheduler.setTriggers(simpleTriggerFactoryBean().getObject(),cronTriggerFactoryBean().getObject());
+		//scheduler.setTriggers(simpleTriggerFactoryBean().getObject(),cronTriggerFactoryBean().getObject());
+		scheduler.setTriggers(cronTriggerFactoryBean().getObject());
 		return scheduler;
 	}
 } 

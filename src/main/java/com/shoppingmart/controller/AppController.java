@@ -100,7 +100,7 @@ public class AppController {
         model.addAttribute("edit", false);
         model.addAttribute("loggedinuser", getPrincipal());
         logger.info("Exiting from AppController: newUser()");
-        return "/product/index";
+        return "redirect:/dashboard.htm";
     }
  
     /**
@@ -115,7 +115,7 @@ public class AppController {
         if (result.hasErrors()) {
             return "redirect:/dashboard.htm";
         }
-        if(user.getUserProfiles() == null){
+        if(user.getUserProfiles() != null && user.getUserProfiles().size() == 0){
         	List<UserProfile> profiles=new ArrayList<>();
         	UserProfile profile=new UserProfile();
         	profile.setType("USER");

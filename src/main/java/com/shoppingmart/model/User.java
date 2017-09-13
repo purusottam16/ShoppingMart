@@ -1,6 +1,7 @@
 package com.shoppingmart.model;
  
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,14 +18,25 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
- 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.joda.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
  
 @Entity
 @Table(name="APP_USER")
 public class User implements Serializable{
  
-    @Id 
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id 
     //@GeneratedValue(strategy=GenerationType.SEQUENCE)
     @GeneratedValue(strategy=GenerationType.AUTO, generator="my_seq_gen1")
     @SequenceGenerator(name="my_seq_gen1", sequenceName="t1_seq")
@@ -45,6 +57,15 @@ public class User implements Serializable{
     @NotEmpty
     @Column(name="LAST_NAME", nullable=false)
     private String lastName;
+    
+    @NotEmpty
+    @Column(name="GENDER", nullable=false)
+    private String gender;
+    @NotNull
+    @DateTimeFormat(pattern="dd/MM/yyyy") 
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+    @Column(name="DOB")
+    private LocalDate  dob;
  
     @NotEmpty
     @Column(name="EMAIL", nullable=false)
@@ -117,6 +138,22 @@ public class User implements Serializable{
     public void setUserProfiles(Set<UserProfile> userProfiles) {
         this.userProfiles = userProfiles;
     }
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public LocalDate getDob() {
+		return dob;
+	}
+
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
+	}
 
 	@Override
 	public int hashCode() {

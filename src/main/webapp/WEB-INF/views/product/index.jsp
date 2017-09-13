@@ -17,8 +17,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
 
 
 
@@ -61,58 +69,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					href="mailto:info@example.com">info@example.com</a></li>
 
 				<c:if test="${loggedinuser != null}">
-				<li><a href="#" data-toggle="modal" data-target="#myModal0"><i
-						class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Account </a></li>
-				
-				
-				
-				
-				
-				<div class="modal fade" id="myModal0" tabindex="-1" role="dialog">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-				<div class="modal-body modal-body-sub_agile">
-					<div class="col-md-8 modal_body_left modal_body_left1">
-						<h3 class="agileinfo_sign">
-							Edit<span> Account</span>
-						</h3>
-						<%-- <form:form method="POST" id="loginform" modelAttribute="login" action="${pageContext.servletContext.contextPath}/login"
-				class="styled-input agile-styled-input-top"> --%>
-						
-						<%-- </form:form> --%>
-						
-						<div class="clearfix"></div>
-						<li class="menu__item dropdown"><a class="menu__link"
-									href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, ${loggedinuser}
-								</a>
-									<ul class="dropdown-menu agile_short_dropdown">
-										<li><a
-											href="${pageContext.servletContext.contextPath}/edit-user-{user.email}">Preferences</a></li>
-										<li><a
-											href="${pageContext.servletContext.contextPath}/logout">Logout</a></li>
-									</ul></li>				
+					<li><a href="#" data-toggle="modal" data-target="#myModal0"><i
+							class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Account
+					</a></li>
 
+
+
+
+
+					<div class="modal fade" id="myModal0" tabindex="-1" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+								</div>
+								<div class="modal-body modal-body-sub_agile">
+									<div class="col-md-8 modal_body_left modal_body_left1">
+										<h3 class="agileinfo_sign">
+											Edit<span> Account</span>
+										</h3>
+										<%-- <form:form method="POST" id="loginform" modelAttribute="login" action="${pageContext.servletContext.contextPath}/login"
+				class="styled-input agile-styled-input-top"> --%>
+
+										<%-- </form:form> --%>
+
+										<div class="clearfix"></div>
+										<li class="menu__item dropdown"><a class="menu__link"
+											href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome,
+												${loggedinuser} </a>
+											<ul class="dropdown-menu agile_short_dropdown">
+												<li><a
+													href="${pageContext.servletContext.contextPath}/edit-user-{user.email}">Preferences</a></li>
+												<li><a
+													href="${pageContext.servletContext.contextPath}/logout">Logout</a></li>
+											</ul></li>
+
+									</div>
+									<div class="col-md-4 modal_body_right modal_body_right1">
+										<img
+											src="${pageContext.servletContext.contextPath}/images/img/log_pic.jpg"
+											alt=" " />
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<!-- //Modal content-->
+						</div>
 					</div>
-					<div class="col-md-4 modal_body_right modal_body_right1">
-						<img
-							src="${pageContext.servletContext.contextPath}/images/img/log_pic.jpg"
-							alt=" " />
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</div>
-			<!-- //Modal content-->
-		</div>
-	</div>
-				
-				
-				
-				
-				<%-- <li class="dropdown menu__item" tabindex="-1" role="dialog"><a href="#"
+
+
+
+
+					<%-- <li class="dropdown menu__item" tabindex="-1" role="dialog"><a href="#"
 									class="dropdown-toggle menu__link" data-toggle="dropdown"
 									role="button" aria-haspopup="true" aria-expanded="false">Welcome, <strong>${loggedinuser}</strong><span class="caret"></span>
 								</a>
@@ -124,7 +133,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<li><a
 											href="${pageContext.servletContext.contextPath}/logout">Logout</a></li>
 									</ul></li> --%>
-									
+
 					<%-- <li class="dropdown menu__item" tabindex="-1" role="dialog">
 						<div class="" >
 							<a href="#" class="fa fa-user dropdown-toggle"
@@ -394,9 +403,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<div class="fb-login-button" data-max-rows="1" data-size="large"
-		data-button-type="login_with" data-show-faces="false"
-		data-auto-logout-link="true" data-use-continue-as="false"></div>
+
 	<!-- //banner-top -->
 	<!-- Modal1 -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
@@ -430,15 +437,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<%-- </form:form> --%>
 						<ul
 							class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
-							<li><a
+							<li><a id="fb_login_link"
 								href="${pageContext.servletContext.contextPath}/request/auth?provider=facebook"
-								class="facebook">
+								onclick="loginFacebook(); return false;" class="facebook">
 									<div class="front">
 										<i class="fa fa-facebook" aria-hidden="true"></i>
 									</div>
 									<div class="back">
 										<i class="fa fa-facebook" aria-hidden="true"></i>
-									</div>
+									</div> <!-- <div class="fb-login-button front fa fa-facebook" data-max-rows="2"
+										data-size="small" data-button-type="login_with"
+										data-show-faces="false" data-auto-logout-link="true"
+										data-use-continue-as="true"></div>
+										<div class="fb-login-button back fa fa-facebook" data-max-rows="2"
+										data-size="small" data-button-type="login_with"
+										data-show-faces="false" data-auto-logout-link="true"
+										data-use-continue-as="true"></div> -->
 							</a></li>
 							<li><a href="#" class="twitter">
 									<div class="front">
@@ -516,6 +530,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</div>
 							<div class="styled-input">
+								<form:input type="text" path="gender" id="gender" />
+								<label>Gender</label>
+								<div class="has-error">
+									<form:errors path="gender" class="help-inline" />
+								</div>
+							</div>
+							<div class="styled-input">
+								<form:input type="text" path="dob" id="DOB" />
+								<label>Date Of Birth</label>
+								<div class="has-error">
+									<form:errors path="dob" class="help-inline" />
+								</div>
+							</div>
+							<div class="styled-input">
 								<form:input type="text" path="email" id="email" />
 								<label>Email</label>
 							</div>
@@ -551,7 +579,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</form> -->
 						<ul
 							class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
-							<li><a href="#" class="facebook">
+							<li><a id="fb_login_link"
+								href="#"
+								onclick="loginFacebook(); return false;" class="facebook">
 									<div class="front">
 										<i class="fa fa-facebook" aria-hidden="true"></i>
 									</div>
@@ -2868,65 +2898,100 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 
 
-	<div id="fb-root">
-		<fb:login-button scope="public_profile,email"
-			onlogin="checkLoginState();">
-		</fb:login-button>
-	</div>
-	<script>
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id))
-				return;
-			js = d.createElement(s);
-			js.id = id;
-			js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10&appId=1924530464539323";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
 
-		function checkLoginState() {
-			FB.getLoginStatus(function(response) {
-				statusChangeCallback(response);
+
+
+	<div id="fb-root"></div>
+
+
+
+
+	
+
+	<script type="text/javascript">
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId : '1924530464539323',
+			oauth : true,
+			status : true, // check login status
+			cookie : true, // enable cookies to allow the server to access the session
+			xfbml : false
+		// parse XFBML
+		});
+
+	};
+	(function() {
+		var e = document.createElement('script');
+		e.src = document.location.protocol
+				+ '//connect.facebook.net/en_US/all.js';
+		e.async = true;
+		document.getElementById('fb-root').appendChild(e);
+	}());
+		function loginFacebook() {
+			FB.login(function(response) {
+				if (response.authResponse) {
+					// connected
+					$('#fb_login_link').css('display', 'none');
+					loginStatusInfo();
+					testAPI();
+				} else {
+					// cancelled
+				}
+			}, {
+				scope : 'user_birthday,email,user_status,public_profile,user_about_me,user_location',
+				return_scopes: true
 			});
 		}
 
-		// This is called with the results from from FB.getLoginStatus().
-		function statusChangeCallback(response) {
-			console.log('statusChangeCallback');
-			console.log(response);
-			// The response object is returned with a status field that lets the
-			// app know the current login status of the person.
-			// Full docs on the response object can be found in the documentation
-			// for FB.getLoginStatus().
-			if (response.status === 'connected') {
-				// Logged into your app and Facebook.
-				testAPI();
-			} else {
-				// The person is not logged into your app or we are unable to tell.
-				document.getElementById('status').innerHTML = 'Please log '
-						+ 'into this app.';
-			}
-		}
-		window.fbAsyncInit = function() {
-			FB.init({
-				appId : '1924530464539323',
-				cookie : true, // enable cookies to allow the server to access 
-				// the session
-				xfbml : true, // parse social plugins on this page
-				version : 'v2.10' // use graph api version 2.8
-			});
-		}
 		function testAPI() {
 			console.log('Welcome!  Fetching your information.... ');
-			FB
-					.api(
-							'/me',
-							function(response) {
-								console.log('Successful login for: '
-										+ response.name);
-								document.getElementById('status').innerHTML = 'Thanks for logging in, '
-										+ response.name + '!';
-							});
+			FB.api('/me', {fields: 'first_name,gender,last_name,birthday,email'}, function(response) {
+				var fName=response.first_name;
+				$('#id').text(response.id);
+				$('#name').text(response.name);
+				$('#firstName').text(response.first_name);
+				
+				document.getElementById("firstName").value =response.first_name;
+				document.getElementById("lasName").value =response.last_name;
+				document.getElementById("gender").value =response.gender;
+				document.getElementById("DOB").value =response.birthday;
+				if(response.hasOwnProperty('email') && response.email != 'undefined'){
+					document.getElementById("email").value =response.email;
+				}
+				
+				$('#lasName').text(response.last_name);
+				$('#link').text(response.link);
+				$('#username').text(response.username);
+				$('#birthday').text(response.birthday);
+				//$('#email').text(response.email);
+
+				$('#user_info').css('display', 'block');
+				console.log('response.id '+response.id);
+				console.log('response.name '+response.name);
+				console.log('response.first_name '+response.first_name);
+				console.log('response.last_name '+response.last_name);
+				console.log('response.username '+response.username);
+				console.log('response.email '+response.email);
+				console.log('response.birthday '+response.birthday);
+				console.log('response.link '+response.link);
+				console.log('response.gender '+response.gender);
+				console.log('response.user_about_me '+response.user_about_me);
+				console.log("=======   "+response);
+			});
+		}
+
+		function loginStatusInfo() {
+			FB.getLoginStatus(function(response) {
+				if (response.status === 'connected') {
+					$('#fb_status').text('Connected');
+
+					$('#accessToken').text(response.authResponse.accessToken);
+					$('#expiresIn').text(response.authResponse.expiresIn);
+					$('#userID').text(response.authResponse.userID);
+
+					$('#user_auth_info').css('display', 'block');
+				}
+			});
 		}
 	</script>
 </body>

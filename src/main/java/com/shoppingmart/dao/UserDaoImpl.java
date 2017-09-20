@@ -8,9 +8,13 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.shoppingmart.entities.UserEnity;
+import com.shoppingmart.entity.converter.EntityUtils;
 import com.shoppingmart.model.User;
+import com.shoppingmart.model.UserProfile;
 import com.shoppingmart.user.dao.AbstractDao;
 import com.shoppingmart.user.dao.UserDao;
  
@@ -18,16 +22,18 @@ import com.shoppingmart.user.dao.UserDao;
  
  
 @Repository("userDao")
-public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
+public class UserDaoImpl extends AbstractDao<Integer, UserEnity> implements UserDao {
  
     static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
+    @Autowired
+    private EntityUtils utils;
      
     public User findById(int id) {
-        User user = getByKey(id);
-        if(user!=null){
-            Hibernate.initialize(user.getUserProfiles());
+    	UserEnity userEntity = getByKey(id);    	 
+        if(userEntity!=null){
+            Hibernate.initialize(userEntity.getUserProfiles());
         }
-        return user;
+        return utils.getUser(userEntity);
     }
  
     public User findBySSO(String sso) {
@@ -45,7 +51,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
     public List<User> findAllUsers() {
         Criteria criteria = createEntityCriteria().addOrder(Order.asc("firstName"));
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
-        List<User> users = (List<User>) criteria.list();
+        List<UserEnity> users = (List<UserEnity>) criteria.list();
          
         // No need to fetch userProfiles since we are not showing them on list page. Let them lazy load. 
         // Uncomment below lines for eagerly fetching of userProfiles if you want.
@@ -53,17 +59,21 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
         for(User user : users){
             Hibernate.initialize(user.getUserProfiles());
         }*/
-        return users;
+        if(users ==null){
+        	 return null;
+        }
+        return utils.getUserList(users);
     }
  
-    public void save(User user) {
-        persist(user);
+    public void save(UserEnity entity) {
+        persist(entity);
+    	//saveOrUpdate(entity);
     }
  
     public void deleteBySSO(String sso) {
         Criteria crit = createEntityCriteria();
         crit.add(Restrictions.eq("ssoId", sso));
-        User user = (User)crit.uniqueResult();
+        UserEnity user = (UserEnity)crit.uniqueResult();
         delete(user);
     }
 
@@ -72,11 +82,16 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 		logger.info("username : {}", email);
         Criteria crit = createEntityCriteria();
         crit.add(Restrictions.eq("email", email));
-        User user = (User)crit.uniqueResult();
+        UserEnity user = (UserEnity)crit.uniqueResult();
         if(user!=null){
             Hibernate.initialize(user.getUserProfiles());
-        }
-        return user;
+            return utils.getUser(user);
+        }else{
+        	 return null;
+        }  
+       
 	}
+
+	
  
 }

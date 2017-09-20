@@ -2,9 +2,11 @@ package com.shoppingmart.controller;
  
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
- 
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -35,11 +37,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.shoppingmart.entities.UserProfile;
 import com.shoppingmart.model.FileBucket;
 import com.shoppingmart.model.User;
 import com.shoppingmart.model.UserDocument;
 import com.shoppingmart.model.UserInfo;
-import com.shoppingmart.model.UserProfile;
 import com.shoppingmart.service.UserProfileService;
 import com.shoppingmart.service.UserService;
 import com.shoppingmart.user.service.UserDocumentService;
@@ -115,12 +117,7 @@ public class AppController {
         if (result.hasErrors()) {
             return "redirect:/dashboard.htm";
         }
-        if(user.getUserProfiles() != null && user.getUserProfiles().size() == 0){
-        	List<UserProfile> profiles=new ArrayList<>();
-        	UserProfile profile=new UserProfile();
-        	profile.setType("USER");
-        	profiles.add(profile);
-        }
+        
         /*
          * Preferred way to achieve uniqueness of field [sso] should be implementing custom @Unique annotation 
          * and applying it on field [sso] of Model class [User].

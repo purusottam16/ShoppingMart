@@ -42,7 +42,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .access("hasRole('USER') or hasRole('ADMIN') or hasRole('MANAGER')")
                 .antMatchers("/newuser/**", "/delete-user-*").access("hasRole('ADMIN')").antMatchers("/edit-user-*")
                 .access("hasRole('ADMIN') or hasRole('MANAGER')").and().formLogin().loginPage("/login")
-                .loginProcessingUrl("/login").usernameParameter("email").passwordParameter("password").defaultSuccessUrl("/dashboard.htm").and()
+                .loginProcessingUrl("/login").usernameParameter("email").passwordParameter("password").defaultSuccessUrl("/checkout/customer-orders.htm").and()
                 .rememberMe().rememberMeParameter("remember-me").tokenRepository(tokenRepository)
                 .tokenValiditySeconds(86400).and().csrf().and().exceptionHandling().accessDeniedPage("/Access_Denied").and().logout().    //logout configuration
         		logoutUrl("/logout"). 

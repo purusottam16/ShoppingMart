@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.shoppingmart.dao.UserProfileDao;
 import com.shoppingmart.dao.UserProfileDaoImpl;
-import com.shoppingmart.model.UserProfile;
+import com.shoppingmart.entities.UserProfile;
  
  
  

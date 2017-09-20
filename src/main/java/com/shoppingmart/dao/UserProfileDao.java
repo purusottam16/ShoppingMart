@@ -2,7 +2,8 @@ package com.shoppingmart.dao;
  
 import java.util.List;
 
-import com.shoppingmart.model.UserProfile;
+import com.shoppingmart.entities.UserProfile;
+
  
  
  

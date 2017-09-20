@@ -2,6 +2,8 @@ package com.shoppingmart.user.service;
  
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.shoppingmart.entity.converter.EntityUtils;
 import com.shoppingmart.model.User;
 import com.shoppingmart.user.dao.UserDao;
  
@@ -21,6 +24,8 @@ public class UsersServiceImpl implements UserService{
     @Autowired
     @Qualifier("usersDao")
     private UserDao dao;
+    @Autowired
+    private EntityUtils utils;
  
     public User findById(int id) {
         return dao.findById(id);
@@ -32,7 +37,7 @@ public class UsersServiceImpl implements UserService{
     }
  
     public void saveUser(User user) {
-        dao.save(user);
+        dao.save(utils.getUserEntity(user));
     }
  
     /*

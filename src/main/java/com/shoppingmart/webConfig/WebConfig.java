@@ -17,6 +17,7 @@ import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -109,6 +110,15 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 	    public void addInterceptors(InterceptorRegistry registry) {
 	        registry.addInterceptor(localeInterceptor());
 	    }
+	    //@Bean
+	    public MethodInvokingFactoryBean methodInvokingFactoryBean() {
+	       MethodInvokingFactoryBean methodInvokingFactoryBean = new MethodInvokingFactoryBean();
+	       // methodInvokingFactoryBean.setStaticMethod("com.shoppingmart.entity.converter.EntityUtils.getUserEntity");
+	       // methodInvokingFactoryBean.setStaticMethod("com.shoppingmart.entity.converter.EntityUtils.getUserEntity");
+	        //methodInvokingFactoryBean.setArguments(new Object[]{User});
+
+	        return methodInvokingFactoryBean;
+	    }
 	
 	@Bean
 	public InternalResourceViewResolver viewResolver(){
@@ -135,6 +145,10 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 	        ParameterizableViewController viewController = new ParameterizableViewController();
 	        viewController.setViewName("/product/womens");
 	        return viewController;
+	    }
+		@Bean
+	    public CommonRedirectUrlController welcome() {
+	        return new CommonRedirectUrlController();
 	    }
 	    @Bean
 	    public SimpleUrlHandlerMapping getUrlHandlerMapping() {
@@ -170,7 +184,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 	    public LocalSessionFactoryBean sessionFactory() throws NamingException, SQLException {
 	        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 	        sessionFactory.setDataSource(getGataSource());
-	        sessionFactory.setPackagesToScan(new String[] { "com.shoppingmart.model.*" });
+	        sessionFactory.setPackagesToScan(new String[] { "com.shoppingmart.entities"});
 	        sessionFactory.setHibernateProperties(hibernateProperties());
 	        return sessionFactory;
 	     }

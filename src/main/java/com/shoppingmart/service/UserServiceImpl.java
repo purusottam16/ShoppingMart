@@ -1,20 +1,31 @@
 package com.shoppingmart.service;
  
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.authentication.AuthenticationTrustResolver;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.shoppingmart.email.service.OrderService;
+import com.shoppingmart.entities.UserEnity;
 import com.shoppingmart.model.CustomerInfo;
 import com.shoppingmart.model.ProductOrder;
 import com.shoppingmart.model.User;
+import com.shoppingmart.entities.UserProfile;
+import com.shoppingmart.entity.converter.EntityUtils;
 import com.shoppingmart.user.dao.UserDao;
+import com.shoppingmart.user.service.UserDocumentService;
+import com.shoppingmart.util.DateUtil;
  
 
 @Service("userService")
@@ -26,6 +37,14 @@ public class UserServiceImpl implements UserService{
     private UserDao dao;
     @Autowired
     OrderService orderService;
+    @Autowired
+    private EntityUtils utils;
+    @Autowired
+    UserDocumentService userDocumentService;
+    @Autowired
+    AuthenticationTrustResolver authenticationTrustResolver;
+    @Autowired
+    UserProfileService userProfileService;
  
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -42,10 +61,23 @@ public class UserServiceImpl implements UserService{
         User user = dao.findByEmail(email);
         return user;
     }
- 
+    private boolean isCurrentAuthenticationAnonymous() {
+    	logger.info("Entering into AppController: >>>>>>> isCurrentAuthenticationAnonymous()");
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authenticationTrustResolver.isAnonymous(authentication);
+    }
     public void saveUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        dao.save(user);        
+    	UserEnity entity=utils.getUserEntity(user);    	
+    	entity.setPassword(passwordEncoder.encode(user.getPassword()));
+    	Set<UserProfile> profiles=new HashSet<>();
+        //user.setDob(DateUtil.convertJavaDateToSqlDate(user.getDob()));
+    	if(isCurrentAuthenticationAnonymous()){
+    		UserProfile Profile= userProfileService.findByType("USER");
+        	profiles.add(Profile);
+        	entity.setUserProfiles(profiles);
+    	}
+    	
+        dao.save(entity);        
 		orderService.sendOrderConfirmation(getDummyOrder(user));
     }
  

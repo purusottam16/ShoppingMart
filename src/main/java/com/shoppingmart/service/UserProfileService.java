@@ -2,7 +2,8 @@ package com.shoppingmart.service;
  
 import java.util.List;
 
-import com.shoppingmart.model.UserProfile;
+import com.shoppingmart.entities.UserProfile;
+
  
  
  

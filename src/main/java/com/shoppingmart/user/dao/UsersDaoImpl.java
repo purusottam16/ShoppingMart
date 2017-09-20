@@ -8,20 +8,25 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.shoppingmart.entities.UserEnity;
+import com.shoppingmart.entity.converter.EntityUtils;
 import com.shoppingmart.model.User;
-import com.shoppingmart.user.controller.RegisterUserController;
+import com.shoppingmart.model.UserProfile;
  
  
  
  
 @Repository("usersDao")
-public class UsersDaoImpl extends AbstractDao<Integer, User> implements UserDao {
+public class UsersDaoImpl extends AbstractDao<Integer, UserEnity> implements UserDao {
 	static final Logger logger = LoggerFactory.getLogger(UsersDaoImpl.class);
+	@Autowired
+	private EntityUtils utils;
     public User findById(int id) {
-        User user = getByKey(id);
-        return user;
+    	UserEnity user = getByKey(id);
+        return utils.getUser(user);
     }
  
     public User findBySSO(String sso) {
@@ -36,19 +41,19 @@ public class UsersDaoImpl extends AbstractDao<Integer, User> implements UserDao 
     public List<User> findAllUsers() {
         Criteria criteria = createEntityCriteria().addOrder(Order.asc("firstName"));
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);//To avoid duplicates.
-        List<User> users = (List<User>) criteria.list();
+        List<UserEnity> users = (List<UserEnity>) criteria.list();
          
-        return users;
+        return utils.getUserList(users);
     }
  
-    public void save(User user) {
+    public void save(UserEnity user) {
         persist(user);
     }
  
     public void deleteBySSO(String sso) {
         Criteria crit = createEntityCriteria();
         crit.add(Restrictions.eq("ssoId", sso));
-        User user = (User)crit.uniqueResult();
+        UserEnity user = (UserEnity)crit.uniqueResult();
         delete(user);
     }
 
@@ -57,11 +62,11 @@ public class UsersDaoImpl extends AbstractDao<Integer, User> implements UserDao 
 		logger.info("username : {}", email);
         Criteria crit = createEntityCriteria();
         crit.add(Restrictions.eq("EMAIL", email));
-        User user = (User)crit.uniqueResult();
+        UserEnity user = (UserEnity)crit.uniqueResult();
         if(user!=null){
             Hibernate.initialize(user.getUserProfiles());
         }
-        return user;
+        return utils.getUser(user);
 	}
- 
+
 }

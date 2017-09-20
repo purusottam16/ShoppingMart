@@ -17,17 +17,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.shoppingmart.payment.paypal.service.PayPal;
+
 public class ExpressCheckoutController {
    
 	private static final long serialVersionUID = -2722761580200224133L;
-	
+	@Autowired
+	private PayPal payPal;
     
 	public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
         throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-        PayPal pp = new PayPal();
+       
         /*
         '------------------------------------
         ' The returnURL is the location where buyers return to when a
@@ -55,14 +60,14 @@ public class ExpressCheckoutController {
 			}
 
         	Map<String, String> nvp;
-    		nvp = pp.callShortcutExpressCheckout (request, returnURL, cancelURL);
+    		nvp = payPal.callShortcutExpressCheckout (request, returnURL, cancelURL);
 	        
 			String strAck = nvp.get("ACK").toString().toUpperCase();
 	        if(strAck !=null && (strAck.equals("SUCCESS") || strAck.equals("SUCCESSWITHWARNING") ))
 	        {
 	            session.setAttribute("token", nvp.get("TOKEN").toString());
 	            // Redirect to paypal.com
-	            pp.redirectURL(response, nvp.get("TOKEN").toString());
+	            payPal.redirectURL(response, nvp.get("TOKEN").toString());
 	        }
 	        else
 	        {

@@ -10,76 +10,169 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.shoppingmart.model.User;
+import com.shoppingmart.model.UserChechoutDetails;
 
 @Controller
 @RequestMapping("/checkout")
 public class CheckoutProcessController {
 	static final Logger logger = LoggerFactory.getLogger(CheckoutProcessController.class);
+
 	@RequestMapping(value = { "/address.htm" }, method = RequestMethod.GET)
-	public String checkoutAddress(ModelMap model) {
-		logger.info("Entering into ApplicationController: >>>>>>> checkoutAddress()");
+	public String checkoutAddress(ModelMap model, UserChechoutDetails checkoutDetails) {
+		logger.info("Entering into CheckoutProcessController: >>>>>>> checkoutAddress()");
 		User user = new User();
-        model.addAttribute("user", user);
-        model.addAttribute("loggedinuser", getPrincipal());
-		logger.info("Exiting from ApplicationController: checkoutAddress()");
+		UserChechoutDetails details = new UserChechoutDetails();
+		model.addAttribute("user", user);
+		model.addAttribute("userCheckoutDetails", details);
+		model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from CheckoutProcessController: checkoutAddress()");
 		return "/shopping/shop-checkout1";
 	}
-	@RequestMapping(value = { "/delivery-method.htm" }, method = RequestMethod.GET)
-	public String deliveryMethod(ModelMap model) {
-		logger.info("Entering into ApplicationController: >>>>>>> deliveryMethod()");
+
+	@RequestMapping(value = { "/address.htm" }, method = RequestMethod.POST)
+	public String submitAddress(ModelMap model, UserChechoutDetails checkoutDetails) {
+		logger.info("Entering into CheckoutProcessController: >>>>>>> checkoutAddress()");
 		User user = new User();
-        model.addAttribute("user", user);
-        model.addAttribute("loggedinuser", getPrincipal());
-		logger.info("Exiting from ApplicationController: deliveryMethod()");
+		model.addAttribute("user", user);
+		model.addAttribute("loggedinuser", getPrincipal());
+		model.addAttribute("userCheckoutDetails", checkoutDetails);
+		logger.info("Exiting from CheckoutProcessController: checkoutAddress()");
+		return "redirect:/checkout/delivery-method.htm";
+	}
+
+	@RequestMapping(value = { "/delivery-method.htm" }, method = RequestMethod.GET)
+	public String deliveryMethod(ModelMap model, UserChechoutDetails checkoutDetails) {
+		logger.info("Entering into CheckoutProcessController: >>>>>>> deliveryMethod()");
+		User user = new User();
+		model.addAttribute("user", user);
+		model.addAttribute("userCheckoutDetails", checkoutDetails);
+		model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from CheckoutProcessController: deliveryMethod()");
 		return "/shopping/shop-checkout2";
 	}
-	@RequestMapping(value = { "/backet.htm" }, method = RequestMethod.GET)
-	public String backet(ModelMap model) {
-		logger.info("Entering into ApplicationController: >>>>>>> backet()");
+
+	@RequestMapping(value = { "/delivery-method.htm" }, method = RequestMethod.POST)
+	public String processDeliveryMethod(ModelMap model, UserChechoutDetails checkoutDetails) {
+		logger.info("Entering into CheckoutProcessController: >>>>>>> deliveryMethod()");
 		User user = new User();
-        model.addAttribute("user", user);
-        model.addAttribute("loggedinuser", getPrincipal());
-		logger.info("Exiting from ApplicationController: backet()");
+		model.addAttribute("user", user);
+		model.addAttribute("userCheckoutDetails", checkoutDetails);
+		model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from CheckoutProcessController: deliveryMethod()");
+		return "redirect:/checkout/payment-method.htm";
+	}
+
+	@RequestMapping(value = { "/backet.htm" }, method = RequestMethod.GET)
+	public String backet(ModelMap model, UserChechoutDetails checkoutDetails) {
+		logger.info("Entering into CheckoutProcessController: >>>>>>> backet()");
+		User user = new User();
+		model.addAttribute("user", user);
+		model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from CheckoutProcessController: backet()");
 		return "/shopping/shop-basket";
 	}
-	
+
 	@RequestMapping(value = { "/customer-orders.htm" }, method = RequestMethod.GET)
 	public String customerOrder(ModelMap model) {
-		logger.info("Entering into ApplicationController: >>>>>>> customerOrder()");
+		logger.info("Entering into CheckoutProcessController: >>>>>>> customerOrder()");
 		User user = new User();
-        model.addAttribute("user", user);
-        model.addAttribute("loggedinuser", getPrincipal());
-		logger.info("Exiting from ApplicationController: customerOrder()");
+		model.addAttribute("user", user);
+		model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from CheckoutProcessController: customerOrder()");
 		return "/shopping/customer-orders";
 	}
-	@RequestMapping(value = { "/payment-method.htm" }, method = RequestMethod.GET)
-	public String paymentMethod(ModelMap model) {
-		logger.info("Entering into ApplicationController: >>>>>>> deliveryMethod()");
+	@RequestMapping(value = { "/customer-order.htm" }, method = RequestMethod.GET)
+	public String getCustomerOrder(ModelMap model) {
+		logger.info("Entering into CheckoutProcessController: >>>>>>> getCustomerOrder()");
 		User user = new User();
-        model.addAttribute("user", user);
-        model.addAttribute("loggedinuser", getPrincipal());
-		logger.info("Exiting from ApplicationController: deliveryMethod()");
+		model.addAttribute("user", user);
+		model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from CheckoutProcessController: getCustomerOrder()");
+		return "/shopping/customer-order";
+	}
+
+	@RequestMapping(value = { "/payment-method.htm" }, method = RequestMethod.GET)
+	public String paymentMethod(ModelMap model, UserChechoutDetails checkoutDetails) {
+		logger.info("Entering into CheckoutProcessController: >>>>>>> paymentMethod()");
+		User user = new User();
+		model.addAttribute("user", user);
+		model.addAttribute("userCheckoutDetails", checkoutDetails);
+		model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from CheckoutProcessController: paymentMethod()");
 		return "/shopping/shop-checkout3";
 	}
-	@RequestMapping(value = { "/review.htm" }, method = RequestMethod.GET)
-	public String review(ModelMap model) {
-		logger.info("Entering into ApplicationController: >>>>>>> review()");
+
+	@RequestMapping(value = { "/payment-method.htm" }, method = RequestMethod.POST)
+	public String processPaymentMethod(ModelMap model, UserChechoutDetails checkoutDetails) {
+		logger.info("Entering into CheckoutProcessController: >>>>>>> processPaymentMethod()");
 		User user = new User();
-        model.addAttribute("user", user);
-        model.addAttribute("loggedinuser", getPrincipal());
-		logger.info("Exiting from ApplicationController: review()");
+		model.addAttribute("user", user);
+		model.addAttribute("userCheckoutDetails", checkoutDetails);
+		model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from CheckoutProcessController: processPaymentMethod()");
+		return "redirect:/checkout/review.htm";
+	}
+
+	@RequestMapping(value = { "/review.htm" }, method = RequestMethod.GET)
+	public String review(ModelMap model, UserChechoutDetails checkoutDetails) {
+		logger.info("Entering into CheckoutProcessController: >>>>>>> review()");
+		User user = new User();
+		model.addAttribute("user", user);
+		model.addAttribute("userCheckoutDetails", checkoutDetails);
+		model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from CheckoutProcessController: review()");
 		return "/shopping/shop-checkout4";
 	}
-	private String getPrincipal(){
-        String userName = null;
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
- 
-        if (principal instanceof UserDetails) {
-            userName = ((UserDetails)principal).getUsername();
-        } else {
-            userName = principal.toString();
-        }
-        logger.info("Exiting from AppController: getPrincipal()");
-        return userName;
-    }
+
+	@RequestMapping(value = { "/review.htm" }, method = RequestMethod.POST)
+	public String submitReview(ModelMap model, UserChechoutDetails checkoutDetails) {
+		logger.info("Entering into CheckoutProcessController: >>>>>>> submitReview()");
+		User user = new User();
+		model.addAttribute("user", user);
+		model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from CheckoutProcessController: submitReview()");
+		return "redirect:/checkout/customer-orders.htm";
+	}
+	@RequestMapping(value = { "/customer-account.htm" }, method = RequestMethod.GET)
+	public String customerAccount(ModelMap model, UserChechoutDetails checkoutDetails) {
+		logger.info("Entering into CheckoutProcessController: >>>>>>> customerAccount()");
+		User user = new User();
+		model.addAttribute("user", user);
+		model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from CheckoutProcessController: customerAccount()");
+		return "/shopping/customer-account";
+	}
+	@RequestMapping(value = { "/customer-account.htm" }, method = RequestMethod.POST)
+	public String editCustomerAccount(ModelMap model, UserChechoutDetails checkoutDetails) {
+		logger.info("Entering into CheckoutProcessController: >>>>>>> editCustomerAccount()");
+		User user = new User();
+		model.addAttribute("user", user);
+		model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from CheckoutProcessController: editCustomerAccount()");
+		return "redirect:/checkout/customer-orders.htm";
+	}
+	
+	@RequestMapping(value = { "/customer-wishlist.htm" }, method = RequestMethod.GET)
+	public String customerWishList(ModelMap model, UserChechoutDetails checkoutDetails) {
+		logger.info("Entering into CheckoutProcessController: >>>>>>> customerWishList()");
+		User user = new User();
+		model.addAttribute("user", user);
+		model.addAttribute("loggedinuser", getPrincipal());
+		logger.info("Exiting from CheckoutProcessController: customerWishList()");
+		return "/shopping/customer-wishlist";
+	}
+	
+
+	private String getPrincipal() {
+		String userName = null;
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		if (principal instanceof UserDetails) {
+			userName = ((UserDetails) principal).getUsername();
+		} else {
+			userName = principal.toString();
+		}
+		logger.info("Exiting from AppController: getPrincipal()");
+		return userName;
+	}
 }

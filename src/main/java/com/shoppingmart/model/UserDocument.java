@@ -1,42 +1,19 @@
 package com.shoppingmart.model;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+
  
-@Entity
-@Table(name="USER_DOCUMENT")
 public class UserDocument {
  
-    @Id 
-    //@GeneratedValue(strategy=GenerationType.SEQUENCE)   
-    @GeneratedValue(strategy=GenerationType.AUTO, generator="my_seq_gen3")
-    @SequenceGenerator(name="my_seq_gen3", sequenceName="T3_SEQ")
     private Integer id; 
      
-    @Column(name="name", length=100, nullable=false)
     private String name;
      
-    @Column(name="description", length=255)
     private String description;
      
-    @Column(name="type", length=100, nullable=false)
     private String type;
      
-    @Lob @Basic(fetch = FetchType.LAZY)
-    @Column(name="content", nullable=false)
     private byte[] content;
  
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "USER_ID")
+   
     private User user;
      
      

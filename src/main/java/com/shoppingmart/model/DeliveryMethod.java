@@ -1,23 +1,21 @@
 package com.shoppingmart.model;
 
 public class DeliveryMethod {
-	private String normalDelivery;
-	private String nextDayDelivery;
-
-	public String getNormalDelivery() {
+	private boolean normalDelivery;
+	private boolean nextDayDelivery;
+	public boolean isNormalDelivery() {
 		return normalDelivery;
 	}
-
-	public void setNormalDelivery(String normalDelivery) {
+	public void setNormalDelivery(boolean normalDelivery) {
 		this.normalDelivery = normalDelivery;
 	}
-
-	public String getNextDayDelivery() {
+	public boolean isNextDayDelivery() {
 		return nextDayDelivery;
 	}
-
-	public void setNextDayDelivery(String nextDayDelivery) {
+	public void setNextDayDelivery(boolean nextDayDelivery) {
 		this.nextDayDelivery = nextDayDelivery;
 	}
+
+	
 
 }

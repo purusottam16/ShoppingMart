@@ -17,9 +17,9 @@ import javax.persistence.Table;
 public class UserDocument {
  
     @Id 
-    //@GeneratedValue(strategy=GenerationType.SEQUENCE)   
-    @GeneratedValue(strategy=GenerationType.AUTO, generator="my_seq_gen3")
-    @SequenceGenerator(name="my_seq_gen3", sequenceName="T3_SEQ")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)   
+    //@GeneratedValue(strategy=GenerationType.AUTO, generator="my_seq_gen3")
+    //@SequenceGenerator(name="my_seq_gen3", sequenceName="T3_SEQ")
     private Integer id; 
      
     @Column(name="name", length=100, nullable=false)

@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class UserProfile implements Serializable{
  
     @Id 
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     //@GeneratedValue(strategy=GenerationType.AUTO, generator="my_seq_gen2")
     //@SequenceGenerator(name="my_seq_gen2", sequenceName="t2_seq")
     private Integer id; 

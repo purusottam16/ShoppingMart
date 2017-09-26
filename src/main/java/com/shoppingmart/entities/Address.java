@@ -1,16 +1,14 @@
-package com.shoppingmart.model;
-
-import java.util.Set;
+package com.shoppingmart.entities;
 
 public class Address {
 	private String firstName;
 	private String lastName;
 	private String houseNo;
 	private String street;
-	private Set<String> city;
+	private String city;
 	private Integer zip;
-	private Set<String> state;
-	private Set<String> country;
+	private String state;
+	private String country;
 	private String primeryMobile;
 	private String secoundryMobile;
 	private String email;
@@ -47,11 +45,11 @@ public class Address {
 		this.street = street;
 	}
 
-	public Set<String> getCity() {
+	public String getCity() {
 		return city;
 	}
 
-	public void setCity(Set<String> city) {
+	public void setCity(String city) {
 		this.city = city;
 	}
 
@@ -63,19 +61,19 @@ public class Address {
 		this.zip = zip;
 	}
 
-	public Set<String> getState() {
+	public String getState() {
 		return state;
 	}
 
-	public void setState(Set<String> state) {
+	public void setState(String state) {
 		this.state = state;
 	}
 
-	public Set<String> getCountry() {
+	public String getCountry() {
 		return country;
 	}
 
-	public void setCountry(Set<String> country) {
+	public void setCountry(String country) {
 		this.country = country;
 	}
 

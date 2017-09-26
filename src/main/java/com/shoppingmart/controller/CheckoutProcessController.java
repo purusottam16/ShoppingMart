@@ -1,36 +1,59 @@
 package com.shoppingmart.controller;
 
+import java.security.Principal;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.shoppingmart.entities.Address;
+import com.shoppingmart.model.DeliveryMethod;
+import com.shoppingmart.model.PaymentGateway;
 import com.shoppingmart.model.User;
 import com.shoppingmart.model.UserChechoutDetails;
+import com.shoppingmart.service.AddressService;
+import com.shoppingmart.service.AddressServiceImpl;
 
 @Controller
 @RequestMapping("/checkout")
 public class CheckoutProcessController {
 	static final Logger logger = LoggerFactory.getLogger(CheckoutProcessController.class);
+	@Autowired
+	@Qualifier("addressService")
+	AddressService addressService;
 
 	@RequestMapping(value = { "/address.htm" }, method = RequestMethod.GET)
-	public String checkoutAddress(ModelMap model, UserChechoutDetails checkoutDetails) {
+	public String checkoutAddress(ModelMap model,
+			@ModelAttribute("userCheckoutDetails") UserChechoutDetails checkoutDetails) {
 		logger.info("Entering into CheckoutProcessController: >>>>>>> checkoutAddress()");
 		User user = new User();
-		UserChechoutDetails details = new UserChechoutDetails();
 		model.addAttribute("user", user);
-		model.addAttribute("userCheckoutDetails", details);
+		model.addAttribute("userCheckoutDetails", checkoutDetails);
+		model.addAttribute("countries", addressService.getAllCountry());
+		// model.addAttribute("states", addressService.getAllStates());
+		// model.addAttribute("cities", addressService.getAllDistrict());
 		model.addAttribute("loggedinuser", getPrincipal());
 		logger.info("Exiting from CheckoutProcessController: checkoutAddress()");
 		return "/shopping/shop-checkout1";
 	}
 
 	@RequestMapping(value = { "/address.htm" }, method = RequestMethod.POST)
-	public String submitAddress(ModelMap model, UserChechoutDetails checkoutDetails) {
+	public String submitAddress(ModelMap model,
+			@ModelAttribute("userCheckoutDetails") UserChechoutDetails checkoutDetails, Locale locale,
+			Principal principal, BindingResult result) {
 		logger.info("Entering into CheckoutProcessController: >>>>>>> checkoutAddress()");
 		User user = new User();
 		model.addAttribute("user", user);
@@ -52,7 +75,8 @@ public class CheckoutProcessController {
 	}
 
 	@RequestMapping(value = { "/delivery-method.htm" }, method = RequestMethod.POST)
-	public String processDeliveryMethod(ModelMap model, UserChechoutDetails checkoutDetails) {
+	public String processDeliveryMethod(ModelMap model, UserChechoutDetails checkoutDetails, Locale locale,
+			Principal principal) {
 		logger.info("Entering into CheckoutProcessController: >>>>>>> deliveryMethod()");
 		User user = new User();
 		model.addAttribute("user", user);
@@ -81,6 +105,7 @@ public class CheckoutProcessController {
 		logger.info("Exiting from CheckoutProcessController: customerOrder()");
 		return "/shopping/customer-orders";
 	}
+
 	@RequestMapping(value = { "/customer-order.htm" }, method = RequestMethod.GET)
 	public String getCustomerOrder(ModelMap model) {
 		logger.info("Entering into CheckoutProcessController: >>>>>>> getCustomerOrder()");
@@ -133,6 +158,7 @@ public class CheckoutProcessController {
 		logger.info("Exiting from CheckoutProcessController: submitReview()");
 		return "redirect:/checkout/customer-orders.htm";
 	}
+
 	@RequestMapping(value = { "/customer-account.htm" }, method = RequestMethod.GET)
 	public String customerAccount(ModelMap model, UserChechoutDetails checkoutDetails) {
 		logger.info("Entering into CheckoutProcessController: >>>>>>> customerAccount()");
@@ -142,6 +168,7 @@ public class CheckoutProcessController {
 		logger.info("Exiting from CheckoutProcessController: customerAccount()");
 		return "/shopping/customer-account";
 	}
+
 	@RequestMapping(value = { "/customer-account.htm" }, method = RequestMethod.POST)
 	public String editCustomerAccount(ModelMap model, UserChechoutDetails checkoutDetails) {
 		logger.info("Entering into CheckoutProcessController: >>>>>>> editCustomerAccount()");
@@ -151,7 +178,7 @@ public class CheckoutProcessController {
 		logger.info("Exiting from CheckoutProcessController: editCustomerAccount()");
 		return "redirect:/checkout/customer-orders.htm";
 	}
-	
+
 	@RequestMapping(value = { "/customer-wishlist.htm" }, method = RequestMethod.GET)
 	public String customerWishList(ModelMap model, UserChechoutDetails checkoutDetails) {
 		logger.info("Entering into CheckoutProcessController: >>>>>>> customerWishList()");
@@ -161,7 +188,19 @@ public class CheckoutProcessController {
 		logger.info("Exiting from CheckoutProcessController: customerWishList()");
 		return "/shopping/customer-wishlist";
 	}
-	
+
+	@ModelAttribute("userCheckoutDetails")
+	public UserChechoutDetails createFormBean() {
+		UserChechoutDetails checkoutAddress = new UserChechoutDetails();
+		/*
+		 * List<String> countries=addressService.getAllCountry(); Address
+		 * address=new Address(); address.setCountry(new HashSet<>(countries));
+		 * address.setCity(new HashSet<>(addressService.getAllDistrict()));
+		 * address.setState(new HashSet<>(addressService.getAllStates()));
+		 * checkoutAddress.setAddress(address);
+		 */
+		return checkoutAddress;
+	}
 
 	private String getPrincipal() {
 		String userName = null;
@@ -175,4 +214,19 @@ public class CheckoutProcessController {
 		logger.info("Exiting from AppController: getPrincipal()");
 		return userName;
 	}
+
+	@RequestMapping(value = { "/allstate.htm" }, method = RequestMethod.GET)
+	public List<String> getStateList(@RequestParam("countryName") String countryName) {
+
+		return addressService.getAllStates(countryName);
+
+	}
+
+	@RequestMapping(value = { "/allcity.htm" }, method = RequestMethod.GET)
+	public List<String> getCityList(@RequestParam("stateName") String stateName) {
+
+		return addressService.getAllDistrict(stateName);
+
+	}
+
 }

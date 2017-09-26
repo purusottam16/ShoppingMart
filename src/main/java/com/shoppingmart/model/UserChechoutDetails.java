@@ -1,5 +1,7 @@
 package com.shoppingmart.model;
 
+import com.shoppingmart.entities.Address;
+
 public class UserChechoutDetails {
 
 	private Address address;

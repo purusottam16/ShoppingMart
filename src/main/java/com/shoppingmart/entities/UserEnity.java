@@ -38,9 +38,9 @@ public class UserEnity implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id 
-    //@GeneratedValue(strategy=GenerationType.SEQUENCE)
-    @GeneratedValue(strategy=GenerationType.AUTO, generator="my_seq_gen1")
-    @SequenceGenerator(name="my_seq_gen1", sequenceName="t1_seq")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    //@GeneratedValue(strategy=GenerationType.AUTO, generator="my_seq_gen1")
+    //@SequenceGenerator(name="my_seq_gen1", sequenceName="t1_seq")
     private Integer id;
  
     //@NotEmpty

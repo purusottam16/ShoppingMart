@@ -21,8 +21,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
 
 
 
@@ -40,14 +46,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	type="image/x-icon" />
 <link href="${pageContext.servletContext.contextPath}/css/bootstrap.css"
 	rel="stylesheet" type="text/css" media="all" />
-	<link href="${pageContext.servletContext.contextPath}/css/customstyle.css"
+<link
+	href="${pageContext.servletContext.contextPath}/css/customstyle.css"
 	rel="stylesheet" type="text/css" media="all" />
 <link href="${pageContext.servletContext.contextPath}/css/style.css"
-	rel="stylesheet" type="text/css" media="all" />	
+	rel="stylesheet" type="text/css" media="all" />
 <link
 	href="${pageContext.servletContext.contextPath}/css/font-awesome.css"
 	rel="stylesheet">
-	<%-- <link href="${pageContext.servletContext.contextPath}/css/style.default.css" rel="stylesheet" id="theme-stylesheet"> --%>
+<%-- <link href="${pageContext.servletContext.contextPath}/css/style.default.css" rel="stylesheet" id="theme-stylesheet"> --%>
 <link
 	href="${pageContext.servletContext.contextPath}/css/easy-responsive-tabs.css"
 	rel='stylesheet' type='text/css' />
@@ -584,8 +591,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</form> -->
 						<ul
 							class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
-							<li><a id="fb_login_link"
-								href="#"
+							<li><a id="fb_login_link" href="#"
 								onclick="loginFacebook(); return false;" class="facebook">
 									<div class="front">
 										<i class="fa fa-facebook" aria-hidden="true"></i>
@@ -637,205 +643,244 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- //Modal2 -->
-        <!-- *** LOGIN MODAL END *** -->
-		<br>
-        <div id="heading-breadcrumbs">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7">
-                        <h1>Checkout - Address</h1>
-                    </div>
-                    <div class="col-md-5">
-                        <ul class="breadcrumb">
-                            <li><a href="${pageContext.servletContext.contextPath}/dashboard.htm">Home</a>
-                            </li>
-                            <li>Checkout - Address</li>
-                        </ul>
+	<!-- *** LOGIN MODAL END *** -->
+	<br>
+	<div id="heading-breadcrumbs">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7">
+					<h1>Checkout - Address</h1>
+				</div>
+				<div class="col-md-5">
+					<ul class="breadcrumb">
+						<li><a
+							href="${pageContext.servletContext.contextPath}/dashboard.htm">Home</a>
+						</li>
+						<li>Checkout - Address</li>
+					</ul>
 
-                    </div>
-                </div>
-            </div>
-        </div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-        <div id="content">
-            <div class="container">
+	<div id="content">
+		<div class="container">
 
-                <div class="row">
+			<div class="row">
 
-                    <div class="col-md-9 clearfix" id="checkout">
+				<div class="col-md-9 clearfix" id="checkout">
 
-                        <div class="box">
-                        <form:form modelAttribute="userCheckoutDetails" action="${pageContext.servletContext.contextPath}/checkout/address.htm">
-                            <%-- <form method="post"  action="${pageContext.servletContext.contextPath}/checkout/address.htm"> --%>
+					<div class="box">
+						<form:form method="POST" modelAttribute="userCheckoutDetails"
+							action="${pageContext.servletContext.contextPath}/checkout/address.htm">
+							<%-- <form method="post"  action="${pageContext.servletContext.contextPath}/checkout/address.htm"> --%>
+							<div class="wthreecartaits wthreecartaits2 cart cart box_1">
+								<ul class="nav nav-pills nav-justified">
+									<li class="active"><a href="#"><i
+											class="fa fa-map-marker"></i><br>Address</a></li>
+									<li class="disabled"><a href="#"><i
+											class="fa fa-truck"></i><br>Delivery Method</a></li>
+									<li class="disabled"><a href="#"><i
+											class="fa fa-money"></i><br>Payment Method</a></li>
+									<li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order
+											Review</a></li>
+								</ul>
+							</div>
+							<div class="content">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="firstname">Firstname</label>
+											<!-- <input type="text" class="form-control" id="firstname"> -->
+											<form:input path="address.firstName" class="form-control" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="lastname">Lastname</label>
+											<form:input path="address.lastName" class="form-control" />
+											<!-- <input type="text" class="form-control" id="lastname"> -->
+										</div>
+									</div>
+								</div>
+								<!-- /.row -->
 
-                                <ul class="nav nav-pills nav-justified">
-                                    <li class="active"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
-                                    </li>
-                                    <li class="disabled"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
-                                    </li>
-                                    <li class="disabled"><a href="#"><i class="fa fa-money"></i><br>Payment Method</a>
-                                    </li>
-                                    <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
-                                    </li>
-                                </ul>
-
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="firstname">Firstname</label>
-                                                <input type="text" class="form-control" id="firstname">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="lastname">Lastname</label>
-                                                <input type="text" class="form-control" id="lastname">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.row -->
-
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="company">Company</label>
-                                                <input type="text" class="form-control" id="company">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="street">Street</label>
-                                                <input type="text" class="form-control" id="street">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.row -->
-
-                                    <div class="row">
-                                        <div class="col-sm-6 col-md-3">
-                                            <div class="form-group">
-                                                <label for="city">City</label>
-                                                <input type="text" class="form-control" id="city">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-3">
-                                            <div class="form-group">
-                                                <label for="zip">ZIP</label>
-                                                <input type="text" class="form-control" id="zip">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-3">
-                                            <div class="form-group">
-                                                <label for="state">State</label>
-                                                <select class="form-control" id="state"></select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-md-3">
-                                            <div class="form-group">
-                                                <label for="country">Country</label>
-                                                <select class="form-control" id="country"></select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="phone">Telephone</label>
-                                                <input type="text" class="form-control" id="phone">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label for="email">Email</label>
-                                                <input type="text" class="form-control" id="email">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <!-- /.row -->
-                                </div>
-                               
-								
-								
-                                <div class="box-footer">
-                                    <div class="nav pull-left">
-                                        <a href="shop-basket.html" class="btn btn-default"><i class="fa fa-chevron-left"></i> BACK TO BASKET</a>
-                                    </div>
-                                    <div class="nav pull-right">
-                                        <button type="submit" class="btn btn-template-main">CONTINUE TO DELIVERY METHOD <i class="fa fa-chevron-right"></i>
-                                        </button>
-                                    </div>                              
-                                </div>
-                                
-                          <%--   </form> --%>
-                            </form:form>
-                        </div>
-                        <!-- /.box -->
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="houseNo">House No.</label>
+											<!-- <input type="text" class="form-control" id="company"> -->
+											<form:input path="address.houseNo" class="form-control" />
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="street">Street</label>
+											<form:input path="address.street" class="form-control" />
+											<!--  <input type="text" class="form-control" id="street"> -->
+										</div>
+									</div>
+								</div>
+								<!-- /.row -->
 
 
-                    </div>
-                    <!-- /.col-md-9 -->
+								<div class="col-sm-6 col-md-3">
+									<div class="form-group">
+										<label for="country">Country</label>
+										<form:select class="selectpicker" data-style="btn btn-select "
+											path="address.country" id="country">
+											<form:option value="country">Select Country</form:option>
+											<c:forEach items="${countries}" var="country">
+												<option value="${country}">${country}</option>
+											</c:forEach>
 
-                    <div class="col-md-3">
-
-                        <div class="box" id="order-summary">
-                            <div class="box-header">
-                                <h3>Order summary</h3>
-                            </div>
-                            <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
-
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Order subtotal</td>
-                                            <th>$446.00</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Shipping and handling</td>
-                                            <th>$10.00</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Tax</td>
-                                            <th>$0.00</th>
-                                        </tr>
-                                        <tr class="total">
-                                            <td>Total</td>
-                                            <th>$456.00</th>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <!-- /.col-md-3 -->
-
-                </div>
-                <!-- /.row -->
-
-            </div>
-            <!-- /.container -->
-        </div>
-        <!-- /#content -->
+										</form:select>
 
 
-        <!-- *** GET IT ***
+										<!-- <select
+											class="form-control" id="country"></select> -->
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-3">
+									<div class="form-group">
+										<label for="state">State</label>
+										<form:select class="selectpicker" data-style="btn btn-select "
+											path="address.state" id="state">
+											<form:option value="state">Select State</form:option>
+											<c:forEach items="${states}" var="state">
+												<option value="${state}">${state}</option>
+											</c:forEach>
+
+										</form:select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6 col-md-3">
+										<div class="form-group">
+											<label for="city">City</label>
+											<form:select class="selectpicker"
+												data-style="btn btn-select " path="address.city" id="city">
+												<form:option value="city">Select City</form:option>
+												<c:forEach items="${cities}" var="city">
+													<option value="${city}">${city}</option>
+												</c:forEach>
+
+											</form:select>
+										</div>
+									</div>
+									<div class="col-sm-6 col-md-3">
+										<div class="form-group">
+											<label for="zip">ZIP</label> <input type="text"
+												class="form-control" id="zip">
+										</div>
+									</div>
+
+
+
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="phone">Mobile</label> <input type="text"
+												class="form-control" id="phone">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="email">Email</label> <input type="text"
+												class="form-control" id="email">
+										</div>
+									</div>
+
+								</div>
+								<!-- /.row -->
+							</div>
+
+
+
+							<div class="box-footer">
+								<div class="nav pull-left">
+									<a href="shop-basket.html"
+										class="btn btn-default hvr-outline-out"><i
+										class="fa fa-chevron-left"></i> BACK TO BASKET</a>
+								</div>
+								<div class="nav pull-right">
+									<button type="submit"
+										class="btn btn-template-main hvr-outline-out">
+										CONTINUE TO DELIVERY METHOD <i class="fa fa-chevron-right"></i>
+									</button>
+								</div>
+							</div>
+
+							<%--   </form> --%>
+						</form:form>
+					</div>
+					<!-- /.box -->
+
+
+				</div>
+				<!-- /.col-md-9 -->
+
+				<div class="col-md-3">
+
+					<div class="box" id="order-summary">
+						<div class="box-header">
+							<h3>Order summary</h3>
+						</div>
+						<p class="text-muted">Shipping and additional costs are
+							calculated based on the values you have entered.</p>
+
+						<div class="table-responsive">
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>Order subtotal</td>
+										<th>$446.00</th>
+									</tr>
+									<tr>
+										<td>Shipping and handling</td>
+										<th>$10.00</th>
+									</tr>
+									<tr>
+										<td>Tax</td>
+										<th>$0.00</th>
+									</tr>
+									<tr class="total">
+										<td>Total</td>
+										<th>$456.00</th>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+
+				</div>
+				<!-- /.col-md-3 -->
+
+			</div>
+			<!-- /.row -->
+
+		</div>
+		<!-- /.container -->
+	</div>
+	<!-- /#content -->
+
+
+	<!-- *** GET IT ***
 	<!-- banner -->
 
 	<!-- //banner -->
-	
+
 	<!-- schedule-bottom -->
-	
+
 	<!-- //schedule-bottom -->
 	<!-- banner-bootom-w3-agileits -->
 
 	<!--/grids-->
-	
+
 	<!--/grids-->
 	<!-- /new_arrivals -->
-		<!-- //new_arrivals -->
+	<!-- //new_arrivals -->
 	<!-- /we-offer -->
 	<div class="sale-w3ls">
 		<%-- <div class="container">
@@ -1299,78 +1344,94 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-	
+
 
 	<script type="text/javascript">
-	window.fbAsyncInit = function() {
-		FB.init({
-			appId : '1924530464539323',
-			oauth : true,
-			status : true, // check login status
-			cookie : true, // enable cookies to allow the server to access the session
-			xfbml : false
-		// parse XFBML
-		});
-
-	};
-	(function() {
-		var e = document.createElement('script');
-		e.src = document.location.protocol
-				+ '//connect.facebook.net/en_US/all.js';
-		e.async = true;
-		document.getElementById('fb-root').appendChild(e);
-	}());
-		function loginFacebook() {
-			FB.login(function(response) {
-				if (response.authResponse) {
-					// connected
-					$('#fb_login_link').css('display', 'none');
-					loginStatusInfo();
-					testAPI();
-				} else {
-					// cancelled
-				}
-			}, {
-				scope : 'user_birthday,email,user_status,public_profile,user_about_me,user_location',
-				return_scopes: true
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId : '1924530464539323',
+				oauth : true,
+				status : true, // check login status
+				cookie : true, // enable cookies to allow the server to access the session
+				xfbml : false
+			// parse XFBML
 			});
+
+		};
+		(function() {
+			var e = document.createElement('script');
+			e.src = document.location.protocol
+					+ '//connect.facebook.net/en_US/all.js';
+			e.async = true;
+			document.getElementById('fb-root').appendChild(e);
+		}());
+		function loginFacebook() {
+			FB
+					.login(
+							function(response) {
+								if (response.authResponse) {
+									// connected
+									$('#fb_login_link').css('display', 'none');
+									loginStatusInfo();
+									testAPI();
+								} else {
+									// cancelled
+								}
+							},
+							{
+								scope : 'user_birthday,email,user_status,public_profile,user_about_me,user_location',
+								return_scopes : true
+							});
 		}
 
 		function testAPI() {
 			console.log('Welcome!  Fetching your information.... ');
-			FB.api('/me', {fields: 'first_name,gender,last_name,birthday,email'}, function(response) {
-				var fName=response.first_name;
-				$('#id').text(response.id);
-				$('#name').text(response.name);
-				$('#firstName').text(response.first_name);
-				
-				document.getElementById("firstName").value =response.first_name;
-				document.getElementById("lasName").value =response.last_name;
-				document.getElementById("gender").value =response.gender;
-				document.getElementById("DOB").value =response.birthday;
-				if(response.hasOwnProperty('email') && response.email != 'undefined'){
-					document.getElementById("email").value =response.email;
-				}
-				
-				$('#lasName').text(response.last_name);
-				$('#link').text(response.link);
-				$('#username').text(response.username);
-				$('#birthday').text(response.birthday);
-				//$('#email').text(response.email);
+			FB
+					.api(
+							'/me',
+							{
+								fields : 'first_name,gender,last_name,birthday,email'
+							},
+							function(response) {
+								var fName = response.first_name;
+								$('#id').text(response.id);
+								$('#name').text(response.name);
+								$('#firstName').text(response.first_name);
 
-				$('#user_info').css('display', 'block');
-				console.log('response.id '+response.id);
-				console.log('response.name '+response.name);
-				console.log('response.first_name '+response.first_name);
-				console.log('response.last_name '+response.last_name);
-				console.log('response.username '+response.username);
-				console.log('response.email '+response.email);
-				console.log('response.birthday '+response.birthday);
-				console.log('response.link '+response.link);
-				console.log('response.gender '+response.gender);
-				console.log('response.user_about_me '+response.user_about_me);
-				console.log("=======   "+response);
-			});
+								document.getElementById("firstName").value = response.first_name;
+								document.getElementById("lasName").value = response.last_name;
+								document.getElementById("gender").value = response.gender;
+								document.getElementById("DOB").value = response.birthday;
+								if (response.hasOwnProperty('email')
+										&& response.email != 'undefined') {
+									document.getElementById("email").value = response.email;
+								}
+
+								$('#lasName').text(response.last_name);
+								$('#link').text(response.link);
+								$('#username').text(response.username);
+								$('#birthday').text(response.birthday);
+								//$('#email').text(response.email);
+
+								$('#user_info').css('display', 'block');
+								console.log('response.id ' + response.id);
+								console.log('response.name ' + response.name);
+								console.log('response.first_name '
+										+ response.first_name);
+								console.log('response.last_name '
+										+ response.last_name);
+								console.log('response.username '
+										+ response.username);
+								console.log('response.email ' + response.email);
+								console.log('response.birthday '
+										+ response.birthday);
+								console.log('response.link ' + response.link);
+								console.log('response.gender '
+										+ response.gender);
+								console.log('response.user_about_me '
+										+ response.user_about_me);
+								console.log("=======   " + response);
+							});
 		}
 
 		function loginStatusInfo() {
@@ -1386,6 +1447,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				}
 			});
 		}
+	</script>
+	<script>
+		$(document).ready(function() {
+
+			$('#country').change(function(event) {
+				var country = $("select#country").val();
+				if(country != 'Select Country'){
+
+					$.get('${pageContext.servletContext.contextPath}/checkout/allstate.htm', {
+						countryName : country
+					}, function(response) {
+
+						var select = $('#state');
+						select.find('option').remove();
+						$.each(response, function(index, value) {
+							$('<option>').val(value).text(value).appendTo(select);
+						});
+					});
+					}
+				});
+			
+			
+
+			$('#state').change(function(event) {
+				var state = $("select#state").val();
+				if(country != 'Select State'){
+
+					$.get('${pageContext.servletContext.contextPath}/checkout/allcity.htm', {
+						stateName : state
+					}, function(response) {
+
+						var select = $('#city');
+						select.find('option').remove();
+						$.each(response, function(index, value) {
+							$('<option>').val(value).text(value).appendTo(select);
+						});
+					});
+
+				}
+			});		
+			
+		});
 	</script>
 </body>
 </html>

@@ -703,7 +703,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <!-- /.row -->
 
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Save new password</button>
+                                    <button type="submit" class="btn btn-template-main hvr-outline-out"><i class="fa fa-save"></i> Save new password</button>
                                 </div>
                             </form>
 
@@ -788,7 +788,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-template-main"><i class="fa fa-save"></i> Save changes</button>
+                                        <button type="submit" class="btn btn-template-main hvr-outline-out"><i class="fa fa-save"></i> Save changes</button>
 
                                     </div>
 

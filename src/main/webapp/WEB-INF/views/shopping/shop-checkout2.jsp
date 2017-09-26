@@ -667,8 +667,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="box">
                             <form:form modelAttribute="userCheckoutDetails" action="${pageContext.servletContext.contextPath}/checkout/delivery-method.htm">
                            <%--  <form method="post"  action="${pageContext.servletContext.contextPath}/dashboard.htm"> --%>
+                               <div class="wthreecartaits wthreecartaits2 cart cart box_1">
                                 <ul class="nav nav-pills nav-justified">
-                                    <li><a href="shop-checkout1.html"><i class="fa fa-map-marker"></i><br>Address</a>
+                                    <li><a href="${pageContext.servletContext.contextPath}/checkout/address.htm"><i class="fa fa-map-marker"></i><br>Address</a>
                                     </li>
                                     <li class="active"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
                                     </li>
@@ -677,7 +678,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <li class="disabled"><a href="#"><i class="fa fa-eye"></i><br>Order Review</a>
                                     </li>
                                 </ul>
-
+								</div>
                                 <div class="content">
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -728,10 +729,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 <div class="box-footer">
                                     <div class="pull-left">
-                                        <a href="${pageContext.servletContext.contextPath}/checkout/address.htm" class="btn btn-default"><i class="fa fa-chevron-left"></i>BACK TO ADDRESS</a>
+                                        <a href="${pageContext.servletContext.contextPath}/checkout/address.htm " class="btn btn-default hvr-outline-out"><i class="fa fa-chevron-left"></i>BACK TO ADDRESS</a>
                                     </div>
                                     <div class="pull-right">
-                                        <button type="submit" class="btn btn-template-main">CONTINUE TO PAYMENT METHOD<i class="fa fa-chevron-right"></i>
+                                        <button type="submit" class="btn btn-template-main hvr-outline-out">CONTINUE TO PAYMENT METHOD<i class="fa fa-chevron-right"></i>
                                         </button>
                                     </div>
                                 </div>

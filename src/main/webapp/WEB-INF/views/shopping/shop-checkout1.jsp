@@ -46,6 +46,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	type="image/x-icon" />
 <link href="${pageContext.servletContext.contextPath}/css/bootstrap.css"
 	rel="stylesheet" type="text/css" media="all" />
+	<link href="${pageContext.servletContext.contextPath}/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/css/bootstrap-select.css">
+	
 <link
 	href="${pageContext.servletContext.contextPath}/css/customstyle.css"
 	rel="stylesheet" type="text/css" media="all" />
@@ -725,59 +729,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<!-- /.row -->
 
 
-								<div class="col-sm-6 col-md-3">
-									<div class="form-group">
-										<label for="country">Country</label>
-										<form:select class="selectpicker" data-style="btn btn-select "
-											path="address.country" id="country">
-											<form:option value="country">Select Country</form:option>
-											<c:forEach items="${countries}" var="country">
-												<option value="${country}">${country}</option>
-											</c:forEach>
-
-										</form:select>
+								
+									
 
 
-										<!-- <select
-											class="form-control" id="country"></select> -->
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-3">
-									<div class="form-group">
-										<label for="state">State</label>
-										<form:select class="selectpicker" data-style="btn btn-select "
-											path="address.state" id="state">
-											<form:option value="state">Select State</form:option>
-											<c:forEach items="${states}" var="state">
-												<option value="${state}">${state}</option>
-											</c:forEach>
-
-										</form:select>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
-											<label for="city">City</label>
-											<form:select class="selectpicker"
-												data-style="btn btn-select " path="address.city" id="city">
-												<form:option value="city">Select City</form:option>
-												<c:forEach items="${cities}" var="city">
-													<option value="${city}">${city}</option>
-												</c:forEach>
-
-											</form:select>
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-3">
-										<div class="form-group">
-											<label for="zip">ZIP</label> <input type="text"
-												class="form-control" id="zip">
-										</div>
-									</div>
-
-
-
+									<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group">
 											<label for="phone">Mobile</label> <input type="text"
@@ -790,13 +746,66 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												class="form-control" id="email">
 										</div>
 									</div>
-
+									
 								</div>
 								<!-- /.row -->
 							</div>
+							<div class="row">
+							
+							<div class="col-sm-6 col-md-4">
+									<div class="form-group">
+										<label for="country">Country</label><br>										
+										<form:select class="selectpicker" data-style="btn btn-select "
+											path="address.country" id="country" data-live-search="true" data-live-search-placeholder="Search">
+											<form:option value="country">Select Country</form:option>
+											<c:forEach items="${countries}" var="country">
+												<option value="${country}">${country}</option>
+											</c:forEach>
 
+										</form:select>
+										
 
+										<!-- <select
+											class="form-control" id="country"></select> -->
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-4">
+									<div class="form-group">
+										<label for="state">State</label><br>
+										
+										
+										
+										<form:select class="selectpicker" data-style="btn btn-select "
+											path="address.state" id="state" data-live-search="true" data-live-search-placeholder="Search" data-size="5" data-actions-box="true">
+											<option value="state">Select State</option>
+											<c:forEach items="${states}" var="state">
+												<option value="${state}">${state}</option>
+											</c:forEach>
 
+										</form:select>
+									</div>
+								</div>
+								
+									<div class="col-sm-6 col-md-4">
+										<div class="form-group">
+											<label for="city">City</label><br>
+											<form:select class="selectpicker"
+												data-style="btn btn-select " path="address.city" id="city" data-live-search="true" data-live-search-placeholder="Search" data-size="5" data-actions-box="true">
+												<form:option value="city">Select City</form:option>
+												<%-- <c:forEach items="${cities}" var="city">
+													<option value="${city}">${city}</option>
+												</c:forEach> --%>
+
+											</form:select>
+										</div>
+									</div>
+									<div class="col-sm-6 col-md-4">
+										<div class="form-group">
+											<label for="zip">ZIP</label> <input type="text"
+												class="form-control" id="zip">
+										</div>
+									</div>
+							</div>
 							<div class="box-footer">
 								<div class="nav pull-left">
 									<a href="shop-basket.html"
@@ -1206,8 +1215,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</a>
 
 	<!-- js -->
+	
 	<script type="text/javascript"
 		src="${pageContext.servletContext.contextPath}/js/jquery-2.1.4.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript"
+		src="${pageContext.servletContext.contextPath}/js/bootstrap.js"></script>
+		<script type="text/javascript"
+		src="${pageContext.servletContext.contextPath}/js/bootstrap-select.js"></script>
 	<!-- //js -->
 	<script
 		src="${pageContext.servletContext.contextPath}/js/modernizr.custom.js"></script>
@@ -1300,8 +1315,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 	<!-- for bootstrap working -->
-	<script type="text/javascript"
-		src="${pageContext.servletContext.contextPath}/js/bootstrap.js"></script>
+	
 	<script type="text/javascript">
 		/* $("#signin").on("click", function(e){
 			e.preventDefault();
@@ -1449,46 +1463,85 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 	</script>
 	<script>
+		
 		$(document).ready(function() {
-
-			$('#country').change(function(event) {
-				var country = $("select#country").val();
+			
+					
+		    $('#country').change(function(event) {
+		    	event.preventDefault();	
+		    	var country = $("select#country").val();
+			    var oDataUrl = "${pageContext.servletContext.contextPath}/checkout/allstate.htm";	    	
 				if(country != 'Select Country'){
-
-					$.get('${pageContext.servletContext.contextPath}/checkout/allstate.htm', {
-						countryName : country
-					}, function(response) {
-
-						var select = $('#state');
-						select.find('option').remove();
-						$.each(response, function(index, value) {
-							$('<option>').val(value).text(value).appendTo(select);
-						});
-					});
-					}
-				});
-			
-			
-
-			$('#state').change(function(event) {
-				var state = $("select#state").val();
-				if(country != 'Select State'){
-
-					$.get('${pageContext.servletContext.contextPath}/checkout/allcity.htm', {
-						stateName : state
-					}, function(response) {
-
-						var select = $('#city');
-						select.find('option').remove();
-						$.each(response, function(index, value) {
-							$('<option>').val(value).text(value).appendTo(select);
-						});
-					});
+			    $.ajax({
+		        url: oDataUrl,
+		        data: "countryName=" + country,
+		        type: "GET",
+		        datatype: 'json',
+		        headers: {
+		             "Accept": "application/json; odata=verbose",
+		            "Content-Type": "application/json; odata=verbose"
+		        },
+		        success: function (data , textStatus, xhr) {
+		        	$('#state').empty();
+					if(data.length != 0){
+	                $.each(data, function (i, item_state) {
+	                    $('#state').append($('<option>', {
+	                        value: item_state,
+	                        text: item_state,
+	                    }, '</option>'));
+	                });
+		        }else{
+		        		
+		        	$('#city').empty();
+		        	 $("#city").selectpicker("refresh");	
+			     }
+				$("#state").selectpicker("refresh");
+	               
+		        },
+		        error: function(data, errorCode, errorMessage) {
+		        	$('#city').empty();	
+		            alert("An error occurred: " + data.responseText);
+		        }
+		    });
 
 				}
-			});		
+				});
+
+		    $('#state').change(function(event) {	
+		    	var state = $("select#state").val();
+			    var oDataUrl = "${pageContext.servletContext.contextPath}/checkout/allcity.htm";	    	
+				if(state != 'Select City'){
+			    $.ajax({
+		        url: oDataUrl,
+		        data: "stateName=" + state,
+		        type: "GET",
+		        datatype: 'json',
+		        headers: {
+		             "Accept": "application/json; odata=verbose",
+		            "Content-Type": "application/json; odata=verbose"
+		        },
+		        success: function (data , textStatus, xhr) {
+		        	$('#city').empty();	
+
+	                $.each(data, function (i, item_state) {
+	                    $('#city').append($('<option>', {
+	                        value: item_state,
+	                        text: item_state,
+	                    }, '</option>'));
+	                });
+	                $("#city").selectpicker("refresh");
+		        },
+		        error: function(data, errorCode, errorMessage) {
+		            alert("An error occurred: " + data.errorMessage);
+		        }
+		    });
+
+				}
+				});
 			
 		});
 	</script>
+	
+	
 </body>
 </html>

@@ -46,18 +46,7 @@
 label {
     font-weight: normal;
 }
-.btn {
-    font-weight: 700;
-    font-family: "Roboto", Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 6px 12px;
-    font-size: 13px;
-    line-height: 1.42857143;
-     border: 1px solid #ddd;
-  border-radius: 0px;
-  box-shadow: 0 0 30px black;
-}
+
 .btn-template-main:hover, .btn-template-main:focus, .btn-template-main:active, .btn-template-main.active {
     background: #38a7bb;
     color: #ffffff;

@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.shoppingmart.entities.Address;
 import com.shoppingmart.model.DeliveryMethod;
@@ -215,17 +218,17 @@ public class CheckoutProcessController {
 		return userName;
 	}
 
-	@RequestMapping(value = { "/allstate.htm" }, method = RequestMethod.GET)
-	public List<String> getStateList(@RequestParam("countryName") String countryName) {
-
-		return addressService.getAllStates(countryName);
+	@RequestMapping(value = { "/allstate.htm" }, method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE )
+	public @ResponseBody List<String> getStateList(String countryName) {
+		List<String> list=addressService.getAllStates(countryName);
+		return list;
 
 	}
 
-	@RequestMapping(value = { "/allcity.htm" }, method = RequestMethod.GET)
-	public List<String> getCityList(@RequestParam("stateName") String stateName) {
-
-		return addressService.getAllDistrict(stateName);
+	@RequestMapping(value = { "/allcity.htm" }, method = RequestMethod.GET,produces = "application/json" )
+	public @ResponseBody List<String> getCityList(String stateName) {
+		List<String> list =addressService.getAllDistrict(stateName);
+		return list;
 
 	}
 

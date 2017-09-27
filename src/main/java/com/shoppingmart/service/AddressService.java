@@ -10,7 +10,7 @@ public interface AddressService {
 	public List<String> getAllCountry(); 
 		
 
-	public List<String> getAllDistrict(String stateName) ;
+	public List<String> getAllDistrict(String stateCode) ;
 
-	public List<String> getAllStates(String countryName);
+	public List<String> getAllStates(String countryCode);
 }

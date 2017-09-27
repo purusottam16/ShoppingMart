@@ -46,13 +46,13 @@ public class AddressServiceImpl implements AddressService{
 		return list;
 	}
 
-	public List<String> getAllStates(String countryName) {		
+	public List<String> getAllStates(String countryCode) {		
 		
 		List<String> list = null;
 		
-		if(dao.findByCountryName(countryName)!=null){
+		if(dao.findByCountryName(countryCode)!=null){
 			list=new ArrayList<String>();
-			for(State state: dao.findByCountryName(countryName)){
+			for(State state: dao.findByCountryName(countryCode)){
 				list.add(state.getName());
 			}
 		}

@@ -89,9 +89,18 @@ public class AddressDAOImpl extends AbstractDao<Integer, Country> implements Add
 			    // Filter the Subquery
 			    .add(Restrictions.eq("c.name", StateName))
 			    // SELECT The User Id  
-			    .setProjection( Projections.property("c.state_code") );
-		Criteria criteria =getSession().createCriteria(City.class, "s").add( Subqueries.propertyIn("s.state_code", stateSubquery) );
+			    .setProjection( Projections.property("c.stateCode") );
+		Criteria criteria =getSession().createCriteria(City.class, "s").add( Subqueries.propertyIn("s.state", stateSubquery) );
 		cities=(List<City>)criteria.list();
+		
+		/*Criteria criteria =getSession().createCriteria(City.class).createAlias("state", "a").add(Restrictions.eq("a.stateCode", Integer.parseInt(StateCode)));
+		
+		cities=(List<City>)criteria.list();*/
+		
+		
+		
+		
+		
 		return cities;
 		
 	}

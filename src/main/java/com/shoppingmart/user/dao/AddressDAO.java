@@ -14,8 +14,8 @@ public interface AddressDAO {
     Country findById(int id);
      
     Country findByCountryCode(String countryCode);
-    List<State> findByCountryName(String countryName);
-    List<City> findByStateName(String StateName);
+    List<State> findByCountryName(String countryCode);
+    List<City> findByStateName(String StateCode);
      
     void save(Country entity);
     

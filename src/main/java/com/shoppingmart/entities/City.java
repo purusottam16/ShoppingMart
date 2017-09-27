@@ -1,7 +1,9 @@
 package com.shoppingmart.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,14 +20,14 @@ public class City {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@NotEmpty
+	/*@NotEmpty
 	@Column(name = "CITY_CODE", nullable = false)
-	private Integer cityCode;
+	private Integer cityCode;*/
 	@NotEmpty
 	@Column(name = "NAME", nullable = false)
 	private String name;
 	
-	@ManyToOne(optional = false)
+	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "STATE_CODE")
 	private State state;
 
@@ -37,13 +39,13 @@ public class City {
 		this.id = id;
 	}
 
-	public Integer getDistrictCode() {
+	/*public Integer getDistrictCode() {
 		return cityCode;
 	}
 
 	public void setDistrictCode(Integer districtCode) {
 		this.cityCode = districtCode;
-	}
+	}*/
 
 	public String getName() {
 		return name;

@@ -34,10 +34,12 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 import org.springframework.ui.velocity.VelocityEngineFactory;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
+import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
@@ -64,12 +66,19 @@ import com.shoppingmart.converter.RoleToUserProfileConverter;
 public class WebConfig extends WebMvcConfigurerAdapter{
 	static final Logger logger = LoggerFactory.getLogger(WebConfig.class);
 
+	
+	private BCryptPasswordEncoder encoder;
 	 @Autowired
 	 private Environment environment;
 	 
 	 @Autowired
 		RoleToUserProfileConverter roleToUserProfileConverter;
 	
+	 @Override
+	public void configureContentNegotiation(final ContentNegotiationConfigurer configurer) {
+	        // Turn off suffix-based content negotiation
+	        configurer.favorPathExtension(false);
+	    }
 	@Bean
 	public DataSource getGataSource() throws NamingException, SQLException{
 		DriverManagerDataSource dataSource=new DriverManagerDataSource();
@@ -80,7 +89,6 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		 System.out.println(dataSource.getConnection());
 		return dataSource;
 	}
-	
 	
 	 @Bean
 	    public ReloadableResourceBundleMessageSource messageSource(){
@@ -240,13 +248,17 @@ public class WebConfig extends WebMvcConfigurerAdapter{
     
     @Bean
     public JavaMailSender getMailSender() {
+    	//encoder=getBCryptPasswordEncoder();
+    	/*if(encoder.matches("aastha29", environment.getRequiredProperty("password"))){
+    		System.out.println("<<<<<<<<<=====Matched Password=======>>>>>");
+    	}*/
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
- 
+        
         // Using gmail.
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
         mailSender.setUsername("purusottam16@gmail.com");
-        mailSender.setPassword("9931853560");
+        mailSender.setPassword("aastha29");
  
         Properties javaMailProperties = new Properties();
         javaMailProperties.put("mail.smtp.starttls.enable", "true");

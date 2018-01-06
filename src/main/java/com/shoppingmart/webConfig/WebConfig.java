@@ -223,7 +223,9 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		registry.addResourceHandler("/less/**").addResourceLocations("/less/");
 		registry.addResourceHandler("/fonts/**").addResourceLocations("/fonts/");
 		registry.addResourceHandler("/scss/**").addResourceLocations("/scss/");
-		registry.addResourceHandler("/icons/**").addResourceLocations("/icons/");		
+		registry.addResourceHandler("/icons/**").addResourceLocations("/icons/");
+		registry.addResourceHandler("/plugins/**").addResourceLocations("/plugins/");
+		registry.addResourceHandler("/bootstrap-less/**").addResourceLocations("/bootstrap-less/");
 	}
 	@Bean(name="multipartResolver")
     public StandardServletMultipartResolver resolver(){
@@ -258,7 +260,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
         mailSender.setUsername("purusottam16@gmail.com");
-        mailSender.setPassword("aastha29");
+        mailSender.setPassword("123456");
  
         Properties javaMailProperties = new Properties();
         javaMailProperties.put("mail.smtp.starttls.enable", "true");

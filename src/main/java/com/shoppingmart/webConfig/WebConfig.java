@@ -251,7 +251,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
     @Bean
     public JavaMailSender getMailSender() {
     	//encoder=getBCryptPasswordEncoder();
-    	/*if(encoder.matches("aastha29", environment.getRequiredProperty("password"))){
+    	/*if(encoder.matches("123456", environment.getRequiredProperty("password"))){
     		System.out.println("<<<<<<<<<=====Matched Password=======>>>>>");
     	}*/
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();

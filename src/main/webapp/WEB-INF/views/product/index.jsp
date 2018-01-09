@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -9,10 +10,9 @@
 <!--/tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords"
-	content="Elite Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<meta name="keywords" content="Elite" />
 <script type="application/x-javascript">
+	
 	
 	
 	
@@ -31,6 +31,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
+
 </script>
 <!--//tags -->
 <link rel="shortcut icon"
@@ -38,6 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	type="image/x-icon" />
 <link href="${pageContext.servletContext.contextPath}/css/bootstrap.css"
 	rel="stylesheet" type="text/css" media="all" />
+	
 <link href="${pageContext.servletContext.contextPath}/css/style.css"
 	rel="stylesheet" type="text/css" media="all" />
 <link
@@ -67,61 +69,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					01234567898</li>
 				<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a
 					href="mailto:info@example.com">info@example.com</a></li>
+			<div id="wrapper">
+			<sec:authorize access="isAuthenticated()">
+    			<sec:authentication property="principal.username" var="username" />
+			</ul>
+			
 
-				<c:if test="${loggedinuser != null}">
-					<li><a href="#" data-toggle="modal" data-target="#myModal0"><i
-							class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Account
-					</a></li>
-
-
-
-
-
-					<div class="modal fade" id="myModal0" tabindex="-1" role="dialog">
-						<div class="modal-dialog">
-							<!-- Modal content-->
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-								</div>
-								<div class="modal-body modal-body-sub_agile">
-									<div class="col-md-8 modal_body_left modal_body_left1">
-										<h3 class="agileinfo_sign">
-											Edit<span> Account</span>
-										</h3>
-										<%-- <form:form method="POST" id="loginform" modelAttribute="login" action="${pageContext.servletContext.contextPath}/login"
-				class="styled-input agile-styled-input-top"> --%>
-
-										<%-- </form:form> --%>
-
-										<div class="clearfix"></div>
-										<li class="menu__item dropdown"><a class="menu__link"
-											href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome,
-												${loggedinuser} </a>
-											<ul class="dropdown-menu agile_short_dropdown">
-												<li><a
-													href="${pageContext.servletContext.contextPath}/edit-user-{user.email}">Preferences</a></li>
-												<li><a
-													href="${pageContext.servletContext.contextPath}/logout">Logout</a></li>
-											</ul></li>
-
-									</div>
-									<div class="col-md-4 modal_body_right modal_body_right1">
-										<img
-											src="${pageContext.servletContext.contextPath}/images/img/log_pic.jpg"
-											alt=" " />
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</div>
-							<!-- //Modal content-->
-						</div>
-					</div>
-
-
-
-
-					<%-- <li class="dropdown menu__item" tabindex="-1" role="dialog"><a href="#"
+			<!-- <sec:authorize access="isFullyAuthenticated()"> -->
+			
+			<nav class="navbar navbar-default top-navbar" role="navigation"> -->
+				<ul class="nav navbar-top-links navbar-right">
+					<li><a class="dropdown-button waves-effect waves-dark"
+						href="#!" data-activates="dropdown1"><i
+							class="fa fa-user fa-fw"></i> <b>${username}</b> <i
+							class="material-icons right"></i></a></li></ul>
+</nav>
+				<ul id="dropdown1" class="dropdown-content">
+					<li><a href="${pageContext.servletContext.contextPath}/edit-user-{user.email}"><i class="fa fa-user fa-fw"></i> My
+							Profile</a></li>
+					<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+					</li>
+					<li><a href="${pageContext.servletContext.contextPath}/logout"><i class="fa fa-sign-out fa-fw"></i>
+							Logout</a></li>
+				</ul>
+				<%-- <li class="dropdown menu__item" tabindex="-1" role="dialog"><a href="#"
 									class="dropdown-toggle menu__link" data-toggle="dropdown"
 									role="button" aria-haspopup="true" aria-expanded="false">Welcome, <strong>${loggedinuser}</strong><span class="caret"></span>
 								</a>
@@ -134,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											href="${pageContext.servletContext.contextPath}/logout">Logout</a></li>
 									</ul></li> --%>
 
-					<%-- <li class="dropdown menu__item" tabindex="-1" role="dialog">
+				<%-- <li class="dropdown menu__item" tabindex="-1" role="dialog">
 						<div class="" >
 							<a href="#" class="fa fa-user dropdown-toggle"
 								data-toggle="dropdown">Welcome, </strong>
@@ -153,10 +124,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</ul>
 						</div>
 					</li> --%>
-
-				</c:if>
+				</sec:authorize>
+			
 
 			</ul>
+			</sec:authorize>
+			</div>
 			<!-- <div class="pull-right">
                 <ul class="nav pull-right">
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
@@ -390,7 +363,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="top_nav_right">
 				<div class="wthreecartaits wthreecartaits2 cart cart box_1">
-					<form action="#" method="post" class="last">
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post"
+						class="last">
 						<input type="hidden" name="cmd" value="_cart"> <input
 							type="hidden" name="display" value="1">
 						<button class="w3view-cart" type="submit" name="submit" value="">
@@ -422,13 +396,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				class="styled-input agile-styled-input-top"> --%>
 						<form action="${pageContext.servletContext.contextPath}/login"
 							method="post">
+							
+							<c:if test="${param.error != null}">
+								<div   class="alert alert-danger" id="msgDisplay">
+									<p>Invalid username and password.</p>
+								</div>
+							</c:if>
+							<c:if test="${param.logout != null}">
+								<div class="alert alert-success" id="msgDisplaySuccess">
+									<p>You have been logged out successfully.</p>
+								</div>
+							</c:if>
+							
 							<div class="styled-input">
-								<input type="email" name="email" required=""> <label>Email</label>
+								<input id="log_email" type="email" name="email" required=""> <label>Email</label>
 								<span></span>
 							</div>
 							<div class="styled-input agile-styled-input-top">
-								<input type="password" name="password" required=""> <label>Password</label>
+								<input id="log_password" type="password" name="password" required=""> <label>Password</label>
 								<span></span>
+							</div>
+							<div class="input-group input-sm">
+                              <div class="checkbox">
+                                <label><input type="checkbox" id="rememberme" name="remember-me"> Remember Me</label>  
+                              </div>
 							</div>
 							<input type="hidden" name="${_csrf.parameterName}"
 								value="${_csrf.token}" /> <input type="submit" id="signin"
@@ -579,8 +570,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</form> -->
 						<ul
 							class="social-nav model-3d-0 footer-social w3_agile_social top_agile_third">
-							<li><a id="fb_login_link"
-								href="#"
+							<li><a id="fb_login_link" href="#"
 								onclick="loginFacebook(); return false;" class="facebook">
 									<div class="front">
 										<i class="fa fa-facebook" aria-hidden="true"></i>
@@ -896,7 +886,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -905,7 +896,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Formal
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Formal
 											Blue Shirt</a>
 									</h4>
 									<div class="info-product-price">
@@ -914,7 +905,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -944,7 +936,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -953,7 +946,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Gabi
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Gabi
 											Full Sleeve Sweatshirt</a>
 									</h4>
 									<div class="info-product-price">
@@ -962,7 +955,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -992,7 +986,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1001,7 +996,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Dark
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Dark
 											Blue Track Pants</a>
 									</h4>
 									<div class="info-product-price">
@@ -1010,7 +1005,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1040,7 +1036,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1049,7 +1046,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Round
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Round
 											Neck Black T-Shirt</a>
 									</h4>
 									<div class="info-product-price">
@@ -1058,7 +1055,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1088,7 +1086,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1097,7 +1096,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Men's
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Men's
 											Black Jeans</a>
 									</h4>
 									<div class="info-product-price">
@@ -1106,7 +1105,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1136,7 +1136,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1145,7 +1146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Analog
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Analog
 											Watch</a>
 									</h4>
 									<div class="info-product-price">
@@ -1154,7 +1155,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1184,7 +1186,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1193,7 +1196,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Reversible
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Reversible
 											Belt</a>
 									</h4>
 									<div class="info-product-price">
@@ -1202,7 +1205,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1232,7 +1236,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1241,7 +1246,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Party
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Party
 											Men's Blazer</a>
 									</h4>
 									<div class="info-product-price">
@@ -1250,7 +1255,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1285,7 +1291,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1294,7 +1301,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">A-line
+										<a href="${pageContext.servletContext.contextPath}/single.htm">A-line
 											Black Skirt</a>
 									</h4>
 									<div class="info-product-price">
@@ -1303,7 +1310,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1333,7 +1341,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1342,7 +1351,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Sleeveless
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Sleeveless
 											Solid Blue Top</a>
 									</h4>
 									<div class="info-product-price">
@@ -1351,7 +1360,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1381,7 +1391,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1390,7 +1401,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Skinny
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Skinny
 											Jeans</a>
 									</h4>
 									<div class="info-product-price">
@@ -1399,7 +1410,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1429,7 +1441,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1438,7 +1451,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Black
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Black
 											Basic Shorts</a>
 									</h4>
 									<div class="info-product-price">
@@ -1447,7 +1460,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1477,7 +1491,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1486,7 +1501,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Pink
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Pink
 											Track Pants</a>
 									</h4>
 									<div class="info-product-price">
@@ -1495,7 +1510,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1525,7 +1541,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1534,7 +1551,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Analog
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Analog
 											Watch</a>
 									</h4>
 									<div class="info-product-price">
@@ -1543,7 +1560,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1573,7 +1591,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1582,7 +1601,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Ankle
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Ankle
 											Length Socks</a>
 									</h4>
 									<div class="info-product-price">
@@ -1591,7 +1610,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1621,7 +1641,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1630,7 +1651,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Reebok
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Reebok
 											Women's Tights</a>
 									</h4>
 									<div class="info-product-price">
@@ -1639,7 +1660,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1674,7 +1696,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1683,7 +1706,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Laptop
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Laptop
 											Messenger Bag</a>
 									</h4>
 									<div class="info-product-price">
@@ -1692,7 +1715,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1722,7 +1746,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1731,7 +1756,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Puma
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Puma
 											Backpack</a>
 									</h4>
 									<div class="info-product-price">
@@ -1740,7 +1765,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1770,7 +1796,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1779,7 +1806,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">
+										<a href="${pageContext.servletContext.contextPath}/single.htm">
 											Laptop Backpack</a>
 									</h4>
 									<div class="info-product-price">
@@ -1788,7 +1815,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1818,7 +1846,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1827,7 +1856,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Travel
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Travel
 											Duffel Bag </a>
 									</h4>
 									<div class="info-product-price">
@@ -1836,7 +1865,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1866,7 +1896,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1875,7 +1906,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">
+										<a href="${pageContext.servletContext.contextPath}/single.htm">
 											Hand-held Bag </a>
 									</h4>
 									<div class="info-product-price">
@@ -1884,7 +1915,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1914,7 +1946,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1923,7 +1956,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Butterflies
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Butterflies
 											Bag </a>
 									</h4>
 									<div class="info-product-price">
@@ -1932,7 +1965,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -1962,7 +1996,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -1971,7 +2006,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Costa
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Costa
 											Swiss Bag </a>
 									</h4>
 									<div class="info-product-price">
@@ -1980,7 +2015,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -2010,7 +2046,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -2019,7 +2056,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Noble
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Noble
 											Designs Bag </a>
 									</h4>
 									<div class="info-product-price">
@@ -2028,7 +2065,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -2062,7 +2100,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -2071,7 +2110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Running
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Running
 											Shoes</a>
 									</h4>
 									<div class="info-product-price">
@@ -2080,7 +2119,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -2110,7 +2150,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -2119,7 +2160,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Shoetopia
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Shoetopia
 											Lace Up</a>
 									</h4>
 									<div class="info-product-price">
@@ -2128,7 +2169,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -2158,7 +2200,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -2167,7 +2210,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Steemo
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Steemo
 											Casuals(Black)</a>
 									</h4>
 									<div class="info-product-price">
@@ -2176,7 +2219,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -2206,7 +2250,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -2215,7 +2260,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Benetton
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Benetton
 											Flip Flops</a>
 									</h4>
 									<div class="info-product-price">
@@ -2224,7 +2269,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -2254,7 +2300,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -2263,7 +2310,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Moonwalk
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Moonwalk
 											Bellies </a>
 									</h4>
 									<div class="info-product-price">
@@ -2272,7 +2319,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -2302,7 +2350,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -2311,7 +2360,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Aero
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Aero
 											Canvas Loafers </a>
 									</h4>
 									<div class="info-product-price">
@@ -2320,7 +2369,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -2350,7 +2400,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -2359,7 +2410,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Sparx
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Sparx
 											Sporty Canvas Shoes</a>
 									</h4>
 									<div class="info-product-price">
@@ -2368,7 +2419,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -2398,7 +2450,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										alt="" class="pro-image-back">
 									<div class="men-cart-pro">
 										<div class="inner-men-cart-pro">
-											<a href="${pageContext.servletContext.contextPath}/single"
+											<a
+												href="${pageContext.servletContext.contextPath}/single.htm"
 												class="link-product-add-cart">Quick View</a>
 										</div>
 									</div>
@@ -2407,7 +2460,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 								<div class="item-info-product ">
 									<h4>
-										<a href="${pageContext.servletContext.contextPath}/single">Women
+										<a href="${pageContext.servletContext.contextPath}/single.htm">Women
 											BLACK Heels</a>
 									</h4>
 									<div class="info-product-price">
@@ -2416,7 +2469,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div
 										class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<form action="#" method="post">
+										<form action="https://www.paypal.com/cgi-bin/webscr"
+											method="post">
 											<fieldset>
 												<input type="hidden" name="cmd" value="_cart" /> <input
 													type="hidden" name="add" value="1" /> <input type="hidden"
@@ -2451,8 +2505,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</h6>
 
 			<a class="hvr-outline-out button2"
-				href="${pageContext.servletContext.contextPath}/single">Shop Now
-			</a>
+				href="${pageContext.servletContext.contextPath}/single.htm">Shop
+				Now </a>
 		</div>
 	</div>
 	<!-- //we-offer -->
@@ -2618,39 +2672,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</h4>
 						<ul>
 							<li><a
-								href="${pageContext.servletContext.contextPath}/single"><img
+								href="${pageContext.servletContext.contextPath}/single.htm"><img
 									src="${pageContext.servletContext.contextPath}/images/img/t1.jpg"
 									alt=" " class="img-responsive" /></a></li>
 							<li><a
-								href="${pageContext.servletContext.contextPath}/single"><img
+								href="${pageContext.servletContext.contextPath}/single.htm"><img
 									src="${pageContext.servletContext.contextPath}/images/img/t2.jpg"
 									alt=" " class="img-responsive" /></a></li>
 							<li><a
-								href="${pageContext.servletContext.contextPath}/single"><img
+								href="${pageContext.servletContext.contextPath}/single.htm"><img
 									src="${pageContext.servletContext.contextPath}/images/img/t3.jpg"
 									alt=" " class="img-responsive" /></a></li>
 							<li><a
-								href="${pageContext.servletContext.contextPath}/single"><img
+								href="${pageContext.servletContext.contextPath}/single.htm"><img
 									src="${pageContext.servletContext.contextPath}/images/img/t4.jpg"
 									alt=" " class="img-responsive" /></a></li>
 							<li><a
-								href="${pageContext.servletContext.contextPath}/single"><img
+								href="${pageContext.servletContext.contextPath}/single.htm"><img
 									src="${pageContext.servletContext.contextPath}/images/img/t1.jpg"
 									alt=" " class="img-responsive" /></a></li>
 							<li><a
-								href="${pageContext.servletContext.contextPath}/single"><img
+								href="${pageContext.servletContext.contextPath}/single.htm"><img
 									src="${pageContext.servletContext.contextPath}/images/img/t2.jpg"
 									alt=" " class="img-responsive" /></a></li>
 							<li><a
-								href="${pageContext.servletContext.contextPath}/single"><img
+								href="${pageContext.servletContext.contextPath}/single.htm"><img
 									src="${pageContext.servletContext.contextPath}/images/img/t3.jpg"
 									alt=" " class="img-responsive" /></a></li>
 							<li><a
-								href="${pageContext.servletContext.contextPath}/single"><img
+								href="${pageContext.servletContext.contextPath}/single.htm"><img
 									src="${pageContext.servletContext.contextPath}/images/img/t2.jpg"
 									alt=" " class="img-responsive" /></a></li>
 							<li><a
-								href="${pageContext.servletContext.contextPath}/single"><img
+								href="${pageContext.servletContext.contextPath}/single.htm"><img
 									src="${pageContext.servletContext.contextPath}/images/img/t4.jpg"
 									alt=" " class="img-responsive" /></a></li>
 						</ul>
@@ -2820,6 +2874,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		src="${pageContext.servletContext.contextPath}/js/jquery.waypoints.min.js"></script>
 	<script
 		src="${pageContext.servletContext.contextPath}/js/jquery.countup.js"></script>
+		<script src="${pageContext.servletContext.contextPath}/js/bootbox.js"></script>
 	<script>
 		$('.counter').countUp();
 	</script>
@@ -2865,10 +2920,63 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script type="text/javascript"
 		src="${pageContext.servletContext.contextPath}/js/bootstrap.js"></script>
 	<script type="text/javascript">
-		/* $("#signin").on("click", function(e){
+		 /* $("#signin").on("click", function(e){
 			e.preventDefault();
 				 $('#loginform').attr('action', '${pageContext.servletContext.contextPath}/login').submit(); 
 				}); */
+
+								
+		 $(function() {
+			 $("#signin").click(function(){
+				 event.preventDefault();
+				 /* the email & the password values from the index page are assigned to varialbes */
+				 var emailV = $( "#log_email" ).val();
+				 var url='${pageContext.servletContext.contextPath}/login';
+				 var pwdV = $( "#log_password" ).val();
+				 /* check and make sure the user didn't submit blank values.
+					This is where you can add more validation checks which i left open for expantion */
+				 if(emailV =="" || pwdV =="" ){
+					 $("#msgDisplay").html("Email address or password fields cannot be empty");
+				 }
+				 else{
+					 var csrf_token='<c:out value='${_csrf.token}'/>';
+						var csrf_param_name='<c:out value='${_csrf.parameterName}'/>';			 
+					 $.ajax({
+						type: "POST",			
+						url: url, /* to validate the user input with database */
+						data: {'email': emailV, 'password': pwdV, '_csrf': csrf_token},
+						 /* passing the email & the password values to loginprocess.php */
+						 headers: {'X-CSRF-Token': $('meta[name="_csrf"]').attr('content')},
+						success: function(msg){
+							 if(msg == 'success'){
+								alert('test1=>: ' + msg) ; /* debug testing */
+								$("#signmein").modal('hide');
+									/* hide the dialog box if the login is successfull */
+								/* bootbox.alert("<strong><center><i class='fa fa-check-square-o'></i>&nbsp;&nbsp;"
+									 +msg +
+									 + "</center></strong>");	 */				
+							 }
+							 /* else{
+								 $("#msgDisplay").html(msg.error); /* Display login failer message in the div tag id=msgDisplay */
+								 alert('test2=>: '+ msg);	/* debug testing */
+							 } */				
+						},
+						error: function(msg){				
+									
+									/*  bootbox.alert("<strong><center><i class='fa fa-lg fa-ban text-danger'></i>&nbsp;&nbsp;"
+											 +""+
+											 + "</center></strong>"); */
+							 $("#msgDisplay").html("Credentials not found!");
+						}
+					});		 
+					
+				 }	   
+				   return false;
+			 });
+			});
+
+
+		
 	</script>
 	<script type="text/javascript">
 		function DropDown(el) {
@@ -2906,78 +3014,94 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-	
+
 
 	<script type="text/javascript">
-	window.fbAsyncInit = function() {
-		FB.init({
-			appId : '1924530464539323',
-			oauth : true,
-			status : true, // check login status
-			cookie : true, // enable cookies to allow the server to access the session
-			xfbml : false
-		// parse XFBML
-		});
-
-	};
-	(function() {
-		var e = document.createElement('script');
-		e.src = document.location.protocol
-				+ '//connect.facebook.net/en_US/all.js';
-		e.async = true;
-		document.getElementById('fb-root').appendChild(e);
-	}());
-		function loginFacebook() {
-			FB.login(function(response) {
-				if (response.authResponse) {
-					// connected
-					$('#fb_login_link').css('display', 'none');
-					loginStatusInfo();
-					testAPI();
-				} else {
-					// cancelled
-				}
-			}, {
-				scope : 'user_birthday,email,user_status,public_profile,user_about_me,user_location',
-				return_scopes: true
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId : '1924530464539323',
+				oauth : true,
+				status : true, // check login status
+				cookie : true, // enable cookies to allow the server to access the session
+				xfbml : false
+			// parse XFBML
 			});
+
+		};
+		(function() {
+			var e = document.createElement('script');
+			e.src = document.location.protocol
+					+ '//connect.facebook.net/en_US/all.js';
+			e.async = true;
+			document.getElementById('fb-root').appendChild(e);
+		}());
+		function loginFacebook() {
+			FB
+					.login(
+							function(response) {
+								if (response.authResponse) {
+									// connected
+									$('#fb_login_link').css('display', 'none');
+									loginStatusInfo();
+									testAPI();
+								} else {
+									// cancelled
+								}
+							},
+							{
+								scope : 'user_birthday,email,user_status,public_profile,user_about_me,user_location',
+								return_scopes : true
+							});
 		}
 
 		function testAPI() {
 			console.log('Welcome!  Fetching your information.... ');
-			FB.api('/me', {fields: 'first_name,gender,last_name,birthday,email'}, function(response) {
-				var fName=response.first_name;
-				$('#id').text(response.id);
-				$('#name').text(response.name);
-				$('#firstName').text(response.first_name);
-				
-				document.getElementById("firstName").value =response.first_name;
-				document.getElementById("lasName").value =response.last_name;
-				document.getElementById("gender").value =response.gender;
-				document.getElementById("DOB").value =response.birthday;
-				if(response.hasOwnProperty('email') && response.email != 'undefined'){
-					document.getElementById("email").value =response.email;
-				}
-				
-				$('#lasName').text(response.last_name);
-				$('#link').text(response.link);
-				$('#username').text(response.username);
-				$('#birthday').text(response.birthday);
-				//$('#email').text(response.email);
+			FB
+					.api(
+							'/me',
+							{
+								fields : 'first_name,gender,last_name,birthday,email'
+							},
+							function(response) {
+								var fName = response.first_name;
+								$('#id').text(response.id);
+								$('#name').text(response.name);
+								$('#firstName').text(response.first_name);
 
-				$('#user_info').css('display', 'block');
-				console.log('response.id '+response.id);
-				console.log('response.name '+response.name);
-				console.log('response.first_name '+response.first_name);
-				console.log('response.last_name '+response.last_name);
-				console.log('response.username '+response.username);
-				console.log('response.email '+response.email);
-				console.log('response.birthday '+response.birthday);
-				console.log('response.link '+response.link);
-				console.log('response.gender '+response.gender);
-				console.log('response.user_about_me '+response.user_about_me);
-				console.log("=======   "+response);
-			});
+								document.getElementById("firstName").value = response.first_name;
+								document.getElementById("lasName").value = response.last_name;
+								document.getElementById("gender").value = response.gender;
+								document.getElementById("DOB").value = response.birthday;
+								if (response.hasOwnProperty('email')
+										&& response.email != 'undefined') {
+									document.getElementById("email").value = response.email;
+								}
+
+								$('#lasName').text(response.last_name);
+								$('#link').text(response.link);
+								$('#username').text(response.username);
+								$('#birthday').text(response.birthday);
+								//$('#email').text(response.email);
+
+								$('#user_info').css('display', 'block');
+								console.log('response.id ' + response.id);
+								console.log('response.name ' + response.name);
+								console.log('response.first_name '
+										+ response.first_name);
+								console.log('response.last_name '
+										+ response.last_name);
+								console.log('response.username '
+										+ response.username);
+								console.log('response.email ' + response.email);
+								console.log('response.birthday '
+										+ response.birthday);
+								console.log('response.link ' + response.link);
+								console.log('response.gender '
+										+ response.gender);
+								console.log('response.user_about_me '
+										+ response.user_about_me);
+								console.log("=======   " + response);
+							});
 		}
 
 		function loginStatusInfo() {
@@ -2993,6 +3117,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				}
 			});
 		}
+	</script>
+
+	<script>
+		paypal.minicart.render();
+
+		/*  paypal.minicart.cart.on('checkout', function (evt) {
+		 	var items, len, i;
+
+		 	if (this.subtotal() > 0) {
+		 		items = this.items();
+
+		 		for (i = 0, len = items.length; i < len; i++) {
+		 			items[i].set('shipping', 0);
+		 			items[i].set('shipping2', 0);
+		 		}
+		 	}
+		 }); */
 	</script>
 </body>
 </html>

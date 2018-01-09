@@ -1,9 +1,4 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--/tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Elite Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<meta name="keywords" content="Elite" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--//tags -->
@@ -49,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<!-- header-bot -->
 			<div class="col-md-4 logo_agile">
-				<h1><a href="index.html"><span>E</span>lite Shop <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
+				<h1><a href="${pageContext.servletContext.contextPath}/dashboard.htm"><span>E</span>lite Shop <i class="fa fa-shopping-bag top_logo_agile_bag" aria-hidden="true"></i></a></h1>
 			</div>
         <!-- header-bot -->
 		<div class="col-md-4 agileits-social top_content">
@@ -94,35 +88,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 				  <ul class="nav navbar-nav menu__list">
-					<li class="active menu__item"><a class="menu__link" href="index.html">Home <span class="sr-only">(current)</span></a></li>
-					<li class=" menu__item"><a class="menu__link" href="about.html">About</a></li>
+					<li class="active menu__item"><a class="menu__link" href="${pageContext.servletContext.contextPath}/dashboard.htm">Home <span class="sr-only">(current)</span></a></li>
+					<li class=" menu__item"><a class="menu__link" href="${pageContext.servletContext.contextPath}/about.htm">About</a></li>
 					<li class="dropdown menu__item">
 						<a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Men's wear <span class="caret"></span></a>
 							<ul class="dropdown-menu multi-column columns-3">
 								<div class="agile_inner_drop_nav_info">
 									<div class="col-sm-6 multi-gd-img1 multi-gd-text ">
-										<a href="mens.html"><img src="images/top2.jpg" alt=" "/></a>
+										<a href="${pageContext.servletContext.contextPath}/mens.htm"><img src="${pageContext.servletContext.contextPath}/images/top2.jpg" alt=" "/></a>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<li><a href="mens.html">Clothing</a></li>
-											<li><a href="mens.html">Wallets</a></li>
-											<li><a href="mens.html">Footwear</a></li>
-											<li><a href="mens.html">Watches</a></li>
-											<li><a href="mens.html">Accessories</a></li>
-											<li><a href="mens.html">Bags</a></li>
-											<li><a href="mens.html">Caps & Hats</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Clothing</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Wallets</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Footwear</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Watches</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Accessories</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Bags</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Caps & Hats</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<li><a href="mens.html">Jewellery</a></li>
-											<li><a href="mens.html">Sunglasses</a></li>
-											<li><a href="mens.html">Perfumes</a></li>
-											<li><a href="mens.html">Beauty</a></li>
-											<li><a href="mens.html">Shirts</a></li>
-											<li><a href="mens.html">Sunglasses</a></li>
-											<li><a href="mens.html">Swimwear</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Jewellery</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Sunglasses</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Perfumes</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Beauty</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shirts</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Sunglasses</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Swimwear</a></li>
 										</ul>
 									</div>
 									<div class="clearfix"></div>
@@ -135,28 +129,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="agile_inner_drop_nav_info">
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<li><a href="womens.html">Clothing</a></li>
-											<li><a href="womens.html">Wallets</a></li>
-											<li><a href="womens.html">Footwear</a></li>
-											<li><a href="womens.html">Watches</a></li>
-											<li><a href="womens.html">Accessories</a></li>
-											<li><a href="womens.html">Bags</a></li>
-											<li><a href="womens.html">Caps & Hats</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Clothing</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Wallets</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Footwear</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Watches</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Accessories</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Bags</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Caps & Hats</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-3 multi-gd-img">
 										<ul class="multi-column-dropdown">
-											<li><a href="womens.html">Jewellery</a></li>
-											<li><a href="womens.html">Sunglasses</a></li>
-											<li><a href="womens.html">Perfumes</a></li>
-											<li><a href="womens.html">Beauty</a></li>
-											<li><a href="womens.html">Shirts</a></li>
-											<li><a href="womens.html">Sunglasses</a></li>
-											<li><a href="womens.html">Swimwear</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Jewellery</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Sunglasses</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Perfumes</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Beauty</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Shirts</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Sunglasses</a></li>
+											<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Swimwear</a></li>
 										</ul>
 									</div>
 									<div class="col-sm-6 multi-gd-img multi-gd-text ">
-										<a href="womens.html"><img src="images/top1.jpg" alt=" "/></a>
+										<a href="${pageContext.servletContext.contextPath}/womens.htm"><img src="${pageContext.servletContext.contextPath}/images/top1.jpg" alt=" "/></a>
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -169,7 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li><a href="typography.html">Typography</a></li>
 								</ul>
 					</li>
-					<li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+					<li class=" menu__item"><a class="menu__link" href="${pageContext.servletContext.contextPath}/contact.htm">Contact</a></li>
 				  </ul>
 				</div>
 			  </div>
@@ -232,7 +226,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						</div>
 						<div class="col-md-4 modal_body_right modal_body_right1">
-							<img src="images/log_pic.jpg" alt=" "/>
+							<img src="${pageContext.servletContext.contextPath}/images/log_pic.jpg" alt=" "/>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -294,7 +288,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						</div>
 						<div class="col-md-4 modal_body_right modal_body_right1">
-							<img src="images/log_pic.jpg" alt=" "/>
+							<img src="${pageContext.servletContext.contextPath}/images/log_pic.jpg" alt=" "/>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -312,7 +306,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="agile_inner_breadcrumb">
 
 						   <ul class="w3_short">
-								<li><a href="index.html">Home</a><i>|</i></li>
+								<li><a href="${pageContext.servletContext.contextPath}/dashboard.htm">Home</a><i>|</i></li>
 								<li>Women's Wear</li>
 							</ul>
 						 </div>
@@ -342,32 +336,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul>
 							<li><input type="checkbox" id="item-0-0" /><label for="item-0-0"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Ethnic Wear</label>
 								<ul>
-									<li><a href="mens.html">Shirts</a></li>
-									<li><a href="mens.html">Caps</a></li>
-									<li><a href="mens.html">Shoes</a></li>
-									<li><a href="mens.html">Pants</a></li>
-									<li><a href="mens.html">SunGlasses</a></li>
-									<li><a href="mens.html">Trousers</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shirts</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Caps</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shoes</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Pants</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">SunGlasses</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Trousers</a></li>
 								</ul>
 							</li>
 							<li><input type="checkbox"  id="item-0-1" /><label for="item-0-1"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Party Wear</label>
 								<ul>
-									<li><a href="mens.html">Shirts</a></li>
-									<li><a href="mens.html">Caps</a></li>
-									<li><a href="mens.html">Shoes</a></li>
-									<li><a href="mens.html">Pants</a></li>
-									<li><a href="mens.html">SunGlasses</a></li>
-									<li><a href="mens.html">Trousers</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shirts</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Caps</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shoes</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Pants</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">SunGlasses</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Trousers</a></li>
 								</ul>
 							</li>
 							<li><input type="checkbox"  id="item-0-2" /><label for="item-0-2"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Casual Wear</label>
 								<ul>
-									<li><a href="mens.html">Shirts</a></li>
-									<li><a href="mens.html">Caps</a></li>
-									<li><a href="mens.html">Shoes</a></li>
-									<li><a href="mens.html">Pants</a></li>
-									<li><a href="mens.html">SunGlasses</a></li>
-									<li><a href="mens.html">Trousers</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shirts</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Caps</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shoes</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Pants</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">SunGlasses</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Trousers</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -376,10 +370,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul>
 							<li><input type="checkbox" checked="checked" id="item-1-0" /><label for="item-1-0"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> New Arrivals</label>
 								<ul>
-									<li><a href="mens.html">Shirts</a></li>
-									<li><a href="mens.html">Shoes</a></li>
-									<li><a href="mens.html">Pants</a></li>
-									<li><a href="mens.html">SunGlasses</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shirts</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shoes</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Pants</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">SunGlasses</a></li>
 								</ul>
 							</li>
 							
@@ -389,26 +383,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul>
 							<li><input type="checkbox"  id="item-2-0" /><label for="item-2-0"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Summer Discount Sales</label>
 								<ul>
-									<li><a href="mens.html">Shirts</a></li>
-									<li><a href="mens.html">Shoes</a></li>
-									<li><a href="mens.html">Pants</a></li>
-									<li><a href="mens.html">SunGlasses</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shirts</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shoes</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Pants</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">SunGlasses</a></li>
 								</ul>
 							</li>
 							<li><input type="checkbox" id="item-2-1" /><label for="item-2-1"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Exciting Offers</label>
 								<ul>
-									<li><a href="mens.html">Shirts</a></li>
-									<li><a href="mens.html">Shoes</a></li>
-									<li><a href="mens.html">Pants</a></li>
-									<li><a href="mens.html">SunGlasses</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shirts</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shoes</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Pants</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">SunGlasses</a></li>
 								</ul>
 							</li>
 							<li><input type="checkbox" id="item-2-2" /><label for="item-2-2"><i class="fa fa-long-arrow-right" aria-hidden="true"></i> Flat Discounts</label>
 								<ul>
-									<li><a href="mens.html">Shirts</a></li>
-									<li><a href="mens.html">Shoes</a></li>
-									<li><a href="mens.html">Pants</a></li>
-									<li><a href="mens.html">SunGlasses</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shirts</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Shoes</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Pants</a></li>
+									<li><a href="${pageContext.servletContext.contextPath}/mens.htm">SunGlasses</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -466,13 +460,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div  id="top" class="callbacks_container">
 					<ul class="rslides" id="slider3">
 						<li>
-							<img class="img-responsive" src="images/banner4.jpg" alt=" "/>
+							<img class="img-responsive" src="${pageContext.servletContext.contextPath}/images/banner4.jpg" alt=" "/>
 						</li>
 						<li>
-							<img class="img-responsive" src="images/banner3.jpg" alt=" "/>
+							<img class="img-responsive" src="${pageContext.servletContext.contextPath}/images/banner3.jpg" alt=" "/>
 						</li>
 						<li>
-							<img class="img-responsive" src="images/banner1.jpg" alt=" "/>
+							<img class="img-responsive" src="${pageContext.servletContext.contextPath}/images/banner1.jpg" alt=" "/>
 						</li>
 
 					</ul>
@@ -481,7 +475,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="men-wear-bottom">
 				<div class="col-sm-4 men-wear-left">
-					<img class="img-responsive" src="images/bb1.jpg" alt=" " />
+					<img class="img-responsive" src="${pageContext.servletContext.contextPath}/images/bb1.jpg" alt=" " />
 				</div>
 				<div class="col-sm-8 men-wear-right">
 					<h4>Exclusive Women's <span>Collections</span></h4>
@@ -496,18 +490,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col-md-4 product-men">
 								<div class="men-pro-item simpleCart_shelfItem">
 									<div class="men-thumb-item">
-										<img src="images/w4.jpg" alt="" class="pro-image-front">
-										<img src="images/w4.jpg" alt="" class="pro-image-back">
+										<img src="${pageContext.servletContext.contextPath}/images/w4.jpg" alt="" class="pro-image-front">
+										<img src="${pageContext.servletContext.contextPath}/images/w4.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="single${pageContext.servletContext.contextPath}/single.htm" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Black Basic Shorts</a></h4>
+										<h4><a href="${pageContext.servletContext.contextPath}/single.htm">Black Basic Shorts</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$120.99</span>
 											<del>$189.71</del>
@@ -535,18 +529,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-4 product-men">
 								<div class="men-pro-item simpleCart_shelfItem">
 									<div class="men-thumb-item">
-										<img src="images/b7.jpg" alt="" class="pro-image-front">
-										<img src="images/b7.jpg" alt="" class="pro-image-back">
+										<img src="${pageContext.servletContext.contextPath}/images/b7.jpg" alt="" class="pro-image-front">
+										<img src="${pageContext.servletContext.contextPath}/images/b7.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="${pageContext.servletContext.contextPath}/single.htm" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Costa Swiss Bag </a></h4>
+										<h4><a href="${pageContext.servletContext.contextPath}/single.htm">Costa Swiss Bag </a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$290.99</span>
 											<del>$359.71</del>
@@ -574,18 +568,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-4 product-men">
 								<div class="men-pro-item simpleCart_shelfItem">
 									<div class="men-thumb-item">
-										<img src="images/s6.jpg" alt="" class="pro-image-front">
-										<img src="images/s6.jpg" alt="" class="pro-image-back">
+										<img src="${pageContext.servletContext.contextPath}/images/s6.jpg" alt="" class="pro-image-front">
+										<img src="${pageContext.servletContext.contextPath}/images/s6.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="${pageContext.servletContext.contextPath}/single.htm" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Aero Canvas Loafers  </a></h4>
+										<h4><a href="${pageContext.servletContext.contextPath}/single.htm">Aero Canvas Loafers  </a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$120.99</span>
 											<del>$199.71</del>
@@ -619,18 +613,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <div class="col-md-3 product-men">
 								<div class="men-pro-item simpleCart_shelfItem">
 									<div class="men-thumb-item">
-										<img src="images/w1.jpg" alt="" class="pro-image-front">
-										<img src="images/w1.jpg" alt="" class="pro-image-back">
+										<img src="${pageContext.servletContext.contextPath}/images/w1.jpg" alt="" class="pro-image-front">
+										<img src="${pageContext.servletContext.contextPath}/images/w1.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="${pageContext.servletContext.contextPath}/single.htm" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">A-line Black Skirt</a></h4>
+										<h4><a href="${pageContext.servletContext.contextPath}/single.htm">A-line Black Skirt</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$130.99</span>
 											<del>$189.71</del>
@@ -658,18 +652,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="col-md-3 product-men">
 								<div class="men-pro-item simpleCart_shelfItem">
 									<div class="men-thumb-item">
-										<img src="images/w2.jpg" alt="" class="pro-image-front">
-										<img src="images/w2.jpg" alt="" class="pro-image-back">
+										<img src="${pageContext.servletContext.contextPath}/images/w2.jpg" alt="" class="pro-image-front">
+										<img src="${pageContext.servletContext.contextPath}/images/w2.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="${pageContext.servletContext.contextPath}/single.htm" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Sleeveless Solid Blue Top</a></h4>
+										<h4><a href="${pageContext.servletContext.contextPath}/single.htm">Sleeveless Solid Blue Top</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$140.99</span>
 											<del>$189.71</del>
@@ -697,18 +691,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="col-md-3 product-men">
 								<div class="men-pro-item simpleCart_shelfItem">
 									<div class="men-thumb-item">
-										<img src="images/w3.jpg" alt="" class="pro-image-front">
-										<img src="images/w3.jpg" alt="" class="pro-image-back">
+										<img src="${pageContext.servletContext.contextPath}/images/w3.jpg" alt="" class="pro-image-front">
+										<img src="${pageContext.servletContext.contextPath}/images/w3.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="${pageContext.servletContext.contextPath}/single.htm" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Skinny Jeans</a></h4>
+										<h4><a href="${pageContext.servletContext.contextPath}/single.htm">Skinny Jeans</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$150.99</span>
 											<del>$189.71</del>
@@ -736,18 +730,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="col-md-3 product-men">
 								<div class="men-pro-item simpleCart_shelfItem">
 									<div class="men-thumb-item">
-										<img src="images/w4.jpg" alt="" class="pro-image-front">
-										<img src="images/w4.jpg" alt="" class="pro-image-back">
+										<img src="${pageContext.servletContext.contextPath}/images/w4.jpg" alt="" class="pro-image-front">
+										<img src="${pageContext.servletContext.contextPath}/images/w4.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="${pageContext.servletContext.contextPath}/single.htm" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Black Basic Shorts</a></h4>
+										<h4><a href="${pageContext.servletContext.contextPath}/single.htm">Black Basic Shorts</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$120.99</span>
 											<del>$189.71</del>
@@ -775,18 +769,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="col-md-3 product-men">
 								<div class="men-pro-item simpleCart_shelfItem">
 									<div class="men-thumb-item">
-										<img src="images/w5.jpg" alt="" class="pro-image-front">
-										<img src="images/w5.jpg" alt="" class="pro-image-back">
+										<img src="${pageContext.servletContext.contextPath}/images/w5.jpg" alt="" class="pro-image-front">
+										<img src="${pageContext.servletContext.contextPath}/images/w5.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="${pageContext.servletContext.contextPath}/single.htm" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Pink Track Pants</a></h4>
+										<h4><a href="${pageContext.servletContext.contextPath}/single.htm">Pink Track Pants</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$220.99</span>
 											<del>$389.71</del>
@@ -814,18 +808,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="col-md-3 product-men">
 								<div class="men-pro-item simpleCart_shelfItem">
 									<div class="men-thumb-item">
-										<img src="images/w6.jpg" alt="" class="pro-image-front">
-										<img src="images/w6.jpg" alt="" class="pro-image-back">
+										<img src="${pageContext.servletContext.contextPath}/images/w6.jpg" alt="" class="pro-image-front">
+										<img src="${pageContext.servletContext.contextPath}/images/w6.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="${pageContext.servletContext.contextPath}/single.htm" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Analog Watch</a></h4>
+										<h4><a href="${pageContext.servletContext.contextPath}/single.htm">Analog Watch</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$320.99</span>
 											<del>$489.71</del>
@@ -853,18 +847,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						    <div class="col-md-3 product-men">
 								<div class="men-pro-item simpleCart_shelfItem">
 									<div class="men-thumb-item">
-										<img src="images/w7.jpg" alt="" class="pro-image-front">
-										<img src="images/w7.jpg" alt="" class="pro-image-back">
+										<img src="${pageContext.servletContext.contextPath}/images/w7.jpg" alt="" class="pro-image-front">
+										<img src="${pageContext.servletContext.contextPath}/images/w7.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="${pageContext.servletContext.contextPath}/single.htm" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Ankle Length Socks</a></h4>
+										<h4><a href="${pageContext.servletContext.contextPath}/single.htm">Ankle Length Socks</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$100.99</span>
 											<del>$159.71</del>
@@ -892,18 +886,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="col-md-3 product-men">
 								<div class="men-pro-item simpleCart_shelfItem">
 									<div class="men-thumb-item">
-										<img src="images/w8.jpg" alt="" class="pro-image-front">
-										<img src="images/w8.jpg" alt="" class="pro-image-back">
+										<img src="${pageContext.servletContext.contextPath}/images/w8.jpg" alt="" class="pro-image-front">
+										<img src="${pageContext.servletContext.contextPath}/images/w8.jpg" alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="${pageContext.servletContext.contextPath}/single.htm" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 											
 									</div>
 									<div class="item-info-product ">
-										<h4><a href="single.html">Reebok Women's Tights</a></h4>
+										<h4><a href="${pageContext.servletContext.contextPath}/single.htm">Reebok Women's Tights</a></h4>
 										<div class="info-product-price">
 											<span class="item_price">$130.99</span>
 											<del>$169.71</del>
@@ -984,7 +978,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="footer">
 	<div class="footer_agile_inner_info_w3l">
 		<div class="col-md-3 footer-left">
-			<h2><a href="index.html"><span>E</span>lite Shop </a></h2>
+			<h2><a href="${pageContext.servletContext.contextPath}/dashboard.htm"><span>E</span>lite Shop </a></h2>
 			<p>Lorem ipsum quia dolor
 			sit amet, consectetur, adipisci velit, sed quia non 
 			numquam eius modi tempora.</p>
@@ -1008,12 +1002,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-4 sign-gd">
 					<h4>Our <span>Information</span> </h4>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="mens.html">Men's Wear</a></li>
-						<li><a href="womens.html">Women's wear</a></li>
-						<li><a href="about.html">About</a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/dashboard.htm">Home</a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/mens.htm">Men's Wear</a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/womens.htm">Women's wear</a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/about.htm">About</a></li>
 						<li><a href="typography.html">Short Codes</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/contact.htm">Contact</a></li>
 					</ul>
 				</div>
 				
@@ -1057,15 +1051,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-3 sign-gd flickr-post">
 					<h4>Flickr <span>Posts</span></h4>
 					<ul>
-						<li><a href="single.html"><img src="images/t1.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.html"><img src="images/t2.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.html"><img src="images/t3.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.html"><img src="images/t4.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.html"><img src="images/t1.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.html"><img src="images/t2.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.html"><img src="images/t3.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.html"><img src="images/t2.jpg" alt=" " class="img-responsive" /></a></li>
-						<li><a href="single.html"><img src="images/t4.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/single.htm"><img src="${pageContext.servletContext.contextPath}/images/t1.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/single.htm"><img src="${pageContext.servletContext.contextPath}/images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/single.htm"><img src="${pageContext.servletContext.contextPath}/images/t3.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/single.htm"><img src="${pageContext.servletContext.contextPath}/images/t4.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/single.htm"><img src="${pageContext.servletContext.contextPath}/images/t1.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/single.htm"><img src="${pageContext.servletContext.contextPath}/images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/single.htm"><img src="${pageContext.servletContext.contextPath}/images/t3.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/single.htm"><img src="${pageContext.servletContext.contextPath}/images/t2.jpg" alt=" " class="img-responsive" /></a></li>
+						<li><a href="${pageContext.servletContext.contextPath}/single.htm"><img src="${pageContext.servletContext.contextPath}/images/t4.jpg" alt=" " class="img-responsive" /></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

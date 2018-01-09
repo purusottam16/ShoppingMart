@@ -7,7 +7,7 @@
     <meta name="googlebot" content="index,follow,snippet,archive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Universal - All In 1 Template</title>
+    <title>Elite Plus</title>
 
     <meta name="keywords" content="">
 
@@ -56,7 +56,7 @@ _________________________________________________________ -->
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-5 contact">
-                            <p class="hidden-sm hidden-xs">Contact us on +420 777 555 333 or hello@universal.com.</p>
+                            <p class="hidden-sm hidden-xs">Contact us on +420 777 555 333 or hello@eliteplus.com.</p>
                             <p class="hidden-md hidden-lg"><a href="#" data-animate-hover="pulse"><i class="fa fa-phone"></i></a>  <a href="#" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
                             </p>
                         </div>
@@ -661,10 +661,10 @@ _________________________________________________________ -->
         <div id="get-it">
             <div class="container">
                 <div class="col-md-8 col-sm-12">
-                    <h3>Do you want cool website like this one?</h3>
+                    <h3>Do you want cool shopping site like this one?</h3>
                 </div>
                 <div class="col-md-4 col-sm-12">
-                    <a href="#" class="btn btn-template-transparent-primary">Buy this template now</a>
+                    <a href="#" class="btn btn-template-transparent-primary"></a>
                 </div>
             </div>
         </div>
@@ -755,7 +755,7 @@ _________________________________________________________ -->
 
                     <h4>Contact</h4>
 
-                    <p><strong>Universal Ltd.</strong>
+                    <p><strong>Elite Plus Ltd.</strong>
                         <br>13/25 New Avenue
                         <br>Newtown upon River
                         <br>45Y 73J
@@ -826,8 +826,7 @@ _________________________________________________________ -->
             <div class="container">
                 <div class="col-md-12">
                     <p class="pull-left">&copy; 2015. Your company / name goes here</p>
-                    <p class="pull-right">Template by <a href="https://bootstrapious.com">Bootstrapious</a> & <a href="https://remoteplease.com">Remote Please</a>
-                         <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
+                    <p class="pull-right">designed by Purusottam <a href=""></a> & <a href="">Remote Please</a>
                     </p>
 
                 </div>

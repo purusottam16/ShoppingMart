@@ -62,6 +62,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link
 	href="${pageContext.servletContext.contextPath}/css/easy-responsive-tabs.css"
 	rel='stylesheet' type='text/css' />
+	<link
+	href="${pageContext.servletContext.contextPath}/css/AdminLTE.css"
+	rel='stylesheet' type='text/css' />
+	<%-- <link
+	href="${pageContext.servletContext.contextPath}/css/AdminLTE.min.css"
+	rel='stylesheet' type='text/css' /> --%>
 <!-- //for bootstrap working -->
 <link
 	href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800"
@@ -85,15 +91,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					href="mailto:info@example.com">info@example.com</a></li>
 
 				<c:if test="${loggedinuser != null}">
-					<li><a href="#" data-toggle="modal" data-target="#myModal0"><i
+					<!-- <li><a href="#" data-toggle="modal" data-target="#myModal0"><i
 							class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Account
-					</a></li>
+					</a></li> -->
+
+					
 
 
 
 
 
-					<div class="modal fade" id="myModal0" tabindex="-1" role="dialog">
+					<%-- <div class="modal fade" id="myModal0" tabindex="-1" role="dialog">
 						<div class="modal-dialog">
 							<!-- Modal content-->
 							<div class="modal-content">
@@ -105,10 +113,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<h3 class="agileinfo_sign">
 											Edit<span> Account</span>
 										</h3>
-										<%-- <form:form method="POST" id="loginform" modelAttribute="login" action="${pageContext.servletContext.contextPath}/login"
-				class="styled-input agile-styled-input-top"> --%>
+										<form:form method="POST" id="loginform" modelAttribute="login" action="${pageContext.servletContext.contextPath}/login"
+				class="styled-input agile-styled-input-top">
 
-										<%-- </form:form> --%>
+										</form:form>
 
 										<div class="clearfix"></div>
 										<li class="menu__item dropdown"><a class="menu__link"
@@ -132,10 +140,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<!-- //Modal content-->
 						</div>
-					</div>
+					</div> --%>
 
+<%-- <div class="navbar-custom-menu" id="myModal0">
+        <ul class="nav navbar-nav">
+      <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="${pageContext.servletContext.contextPath}/images/img/avatar51.png" class="user-image" alt="User Image">
+              <span class="hidden-xs">Purusottam</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
-
+                <p>
+                  Alexander Pierce - Web Developer
+                  <small>Member since Nov. 2012</small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Followers</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Sales</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Friends</a>
+                  </div>
+                </div>
+                <!-- /.row -->
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+</ul>
+</div> --%>
 
 					<%-- <li class="dropdown menu__item" tabindex="-1" role="dialog"><a href="#"
 									class="dropdown-toggle menu__link" data-toggle="dropdown"
@@ -210,7 +262,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<!-- header-bot -->
 			<div class="col-md-4 agileits-social top_content">
-				<ul class="social-nav model-3d-0 footer-social w3_agile_social">
+				<ul class="social-nav model-3d-0 footer-social w3_agile_social navbar-custom-menu">
 					<li class="share">Share On :</li>
 					<li><a href="#" class="facebook">
 							<div class="front">
@@ -244,11 +296,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<i class="fa fa-linkedin" aria-hidden="true"></i>
 							</div>
 					</a></li>
+			
 				</ul>
-
+				
+				
 
 
 			</div>
+		
 			<div class="clearfix"></div>
 		</div>
 	</div>
@@ -404,7 +459,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</nav>
 			</div>
-			<div class="top_nav_right">
+			
+				<div class="top_nav_right">
+				
 				<div class="wthreecartaits wthreecartaits2 cart cart box_1">
 					<form action="#" method="post" class="last">
 						<input type="hidden" name="cmd" value="_cart"> <input
@@ -414,10 +471,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</button>
 					</form>
 
+					
 				</div>
+				
+									
+					
+							
+				
+
 			</div>
-			<div class="clearfix"></div>
+			
+			
+				
+
+			<div class="clearfix">
+				
+			</div>
 		</div>
+	
 	</div>
 
 	<!-- //banner-top -->
@@ -495,6 +566,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 							</a></li>
 						</ul>
+						
+						
+						
 						<div class="clearfix"></div>
 						<p>
 							<a href="#" data-toggle="modal" data-target="#myModal2">
@@ -799,12 +873,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</form:select>
 										</div>
 									</div>
-									<div class="col-sm-6 col-md-4">
+									
+									<div class="col-sm-6">
 										<div class="form-group">
 											<label for="zip">ZIP</label> <input type="text"
 												class="form-control" id="zip">
 										</div>
 									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="street">Landmark</label>
+											<form:input path="address.street" class="form-control" />
+											<!--  <input type="text" class="form-control" id="street"> -->
+										</div>
+									</div>
+									
 							</div>
 							<div class="box-footer">
 								<div class="nav pull-left">
